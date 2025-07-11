@@ -1,0 +1,44 @@
+{
+  "name": "payglocal",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@fingerprintjs/fingerprintjs": "^4.5.1",
+    "@next/env": "^15.0.3",
+    "@strapi/blocks-react-renderer": "^1.0.2",
+    "@wix/data": "^1.0.173",
+    "@wix/sdk": "^1.14.4",
+    "aos": "^2.3.4",
+    "axios": "^1.7.7",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "cross-spawn": "^7.0.6",
+    "dompurify": "^3.2.0",
+    "draft-js": "^0.11.7",
+    "firebase": "^11.0.2",
+    "lucide-react": "^0.460.0",
+    "next": "^14.2.18",
+    "prop-types": "^15.8.1",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-youtube": "^10.1.0",
+    "tailwind-merge": "^2.5.4",
+    "tailwindcss-animate": "^1.0.7"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.16.0",
+    "eslint": "^8.57.1",
+    "eslint-config-next": "^15.0.4",
+    "eslint-plugin-react": "^7.37.2",
+    "globals": "^15.13.0",
+    "husky": "^9.1.7",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1"
+  }
+}

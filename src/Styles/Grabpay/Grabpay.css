@@ -1,0 +1,67 @@
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.grabpay-header-center-content {
+  max-width: 61.587rem;
+}
+
+@media screen and (max-width: 1024px) {
+  .grabpay-payment-methods-container {
+    -webkit-animation-name: SlideLeftToRight;
+            animation-name: SlideLeftToRight;
+    -webkit-animation-duration: 20s;
+            animation-duration: 20s;
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+  }
+  .grabpay-payment-methods-container:nth-child(2) {
+    -webkit-animation-name: SlideRightToLeft;
+            animation-name: SlideRightToLeft;
+  }
+}
+@-webkit-keyframes SlideLeftToRight {
+  0% {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+  100% {
+    -webkit-transform: translate(100%);
+            transform: translate(100%);
+  }
+}
+@keyframes SlideLeftToRight {
+  0% {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+  100% {
+    -webkit-transform: translate(100%);
+            transform: translate(100%);
+  }
+}
+@-webkit-keyframes SlideRightToLeft {
+  0% {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+  100% {
+    -webkit-transform: translate(-100%);
+            transform: translate(-100%);
+  }
+}
+@keyframes SlideRightToLeft {
+  0% {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+  100% {
+    -webkit-transform: translate(-100%);
+            transform: translate(-100%);
+  }
+}/*# sourceMappingURL=Grabpay.css.map */

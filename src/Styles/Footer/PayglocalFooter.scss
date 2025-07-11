@@ -1,0 +1,40 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.payglocal-footer-graphic-image{
+    background-image: url('../../Images/Footer/footer-graphic.svg');
+    background-repeat: repeat;
+    background-size: cover;
+    height: 102.85px;
+}
+.footer-payglocal-logo-and-links-parent-container{
+    max-width: 90rem;
+}
+
+@media screen and (max-width:1023px) {
+    .payglocal-footer-graphic-image{
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .footer-payglocal-logo-and-links-parent-container{
+        max-width: 100%;
+    }
+    .footer-links-hidden{
+        // height: 0px;
+        max-height: 0px;
+        overflow: hidden;
+        // transition: .5s;
+    }
+    .footer-links-visible{
+        max-height: 1200px;
+        // height: fit-content;
+        // transition: .5s ;
+
+    }
+    .payglocal-footer-link-titles{
+        color: white;
+    }
+}

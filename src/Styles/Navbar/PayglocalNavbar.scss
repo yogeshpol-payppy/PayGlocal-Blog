@@ -1,0 +1,64 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.navbar-white-background{
+    background-color: rgba(255, 255, 255, 0.9) ;
+}
+.navbar-signup-btn{
+    background-color: #FFFFFF1F;
+    &:hover{
+        background-color: #ffffff3e;
+
+    }
+}
+.payglocal-navbar-parent-link-container{
+    &:hover .payglocal-navbar-link-container{
+        display: flex;
+    }
+}
+.payglocal-navbar-link-container{
+    display: none;
+}
+
+
+@media screen and (max-width:1023px) {
+    .navbar-responsive-content{
+        position: absolute;
+        background-color: white;
+        width: 100%;
+        align-items: flex-start;
+        height: 100vh;
+        top: 0;
+        z-index: 20;
+    }
+    .payglocal-navbar-parent-link{
+        color: black;
+    }
+    .navbar-responsive-content-visible{
+        left: 0;
+    }
+    .navbar-responsive-content-hidden{
+        left: 100%;
+    }
+    .all-absolute-nav-links{
+        color: black;
+    }
+    .payglocal-navbar-link-container{
+        position: initial;
+        display: flex;
+        &::-webkit-scrollbar{
+            display: none;
+        }
+    }
+    .visibleflex{
+        max-height: 1000px;
+        overflow: auto;
+    }
+    .hiddenflex{
+       max-height: 0;
+       overflow: hidden;
+    }
+}

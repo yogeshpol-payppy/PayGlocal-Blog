@@ -1,0 +1,39 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+                                        //header
+
+.payglocal-about-us-header{
+    background: linear-gradient(108deg, #66A2F2 15.66%, #4A8AE1 34.46%, #337BDD 43.09%, #3473C7 73.7%, #1C5199 98.51%);
+    min-height: 70vh;
+}
+
+                                        //section 1
+.about-us-img-carousel{
+    &::-webkit-scrollbar{
+        display: none;
+    }
+    animation-name: ScrollAnimation;
+    animation-duration: 40s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@media screen and (max-width:640px) {
+    .about-us-img-carousel{
+        animation-duration: 5s;
+    }
+}
+
+
+@keyframes ScrollAnimation {
+    0%{
+        transform: translateX(0);
+    }
+    100%{
+        transform: translateX(-100%);
+    }
+}

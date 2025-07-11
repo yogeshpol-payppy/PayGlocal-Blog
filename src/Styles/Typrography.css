@@ -1,0 +1,526 @@
+@font-face {
+  font-family: "matter";
+  src: url("../app/matter-font/Matter-Regular.ttf");
+  font-style: normal;
+}
+.matterfont {
+  font-family: "matter", sans-serif;
+}
+
+.common-h1-heading, .strapi-blog h1 {
+  font-size: 5rem;
+  line-height: 5rem;
+  font-weight: 600;
+  font-family: "matter", sans-serif;
+}
+
+@media screen and (max-width: 1024px) {
+  .common-h1-heading, .strapi-blog h1 {
+    font-size: 3.5rem;
+    line-height: 3.75rem;
+  }
+}
+@media screen and (max-width: 699px) {
+  .common-h1-heading, .strapi-blog h1 {
+    font-size: 2.5rem;
+    line-height: 3rem;
+    letter-spacing: -0.075rem;
+  }
+}
+.common-h2-heading, .strapi-blog h2 {
+  font-size: 3.5rem;
+  line-height: 4rem;
+  font-weight: 600;
+  font-family: "matter", sans-serif;
+}
+
+@media screen and (max-width: 1024px) {
+  .common-h2-heading, .strapi-blog h2 {
+    font-size: 3rem;
+    line-height: 3.5rem;
+  }
+}
+@media screen and (max-width: 699px) {
+  .common-h2-heading, .strapi-blog h2 {
+    font-size: 2rem;
+    line-height: 2.5rem;
+  }
+}
+.common-h3-heading, .strapi-blog h3 {
+  font-size: 3rem;
+  line-height: 3.5rem;
+  font-weight: 600;
+  font-family: "matter", sans-serif;
+}
+
+@media screen and (max-width: 1024px) {
+  .common-h3-heading, .strapi-blog h3 {
+    font-size: 2.25rem;
+    line-height: 3rem;
+  }
+}
+@media screen and (max-width: 699px) {
+  .common-h3-heading, .strapi-blog h3 {
+    font-size: 2rem;
+    line-height: 2.5rem;
+  }
+}
+.common-h4-heading, .strapi-blog h4 {
+  font-size: 2.25rem;
+  line-height: 2.75rem;
+  font-weight: 600;
+  font-family: "matter", sans-serif;
+}
+
+@media screen and (max-width: 1024px) {
+  .common-h4-heading, .strapi-blog h4 {
+    font-size: 1.75rem;
+    line-height: 2.5rem;
+  }
+}
+@media screen and (max-width: 699px) {
+  .common-h4-heading, .strapi-blog h4 {
+    font-size: 1.75rem;
+    line-height: 2.25rem;
+  }
+}
+.common-h5-heading, .strapi-blog h5 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 600;
+  font-family: "matter", sans-serif;
+}
+
+@media screen and (max-width: 1024px) {
+  .common-h5-heading, .strapi-blog h5 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+}
+@media screen and (max-width: 699px) {
+  .common-h5-heading, .strapi-blog h5 {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+}
+.common-h6-heading, .strapi-blog h6 {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+  font-family: "matter", sans-serif;
+}
+
+@media screen and (max-width: 1024px) {
+  .common-h6-heading, .strapi-blog h6 {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+}
+@media screen and (max-width: 699px) {
+  .common-h6-heading, .strapi-blog h6 {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+}
+.common-body1-text, .strapi-blog p {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: normal;
+}
+
+@media screen and (max-width: 1024px) {
+  .common-body1-text, .strapi-blog p {
+    font-size: 1rem;
+    line-height: 1.75rem;
+  }
+}
+@media screen and (max-width: 699px) {
+  .common-body1-text, .strapi-blog p {
+    font-size: 0.875rem;
+    line-height: 1.5rem;
+  }
+}
+.common-body2-text, .strapi-blog ul,
+.strapi-blog ol {
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  font-weight: normal;
+}
+
+@media screen and (max-width: 1024px) {
+  .common-body2-text, .strapi-blog ul,
+  .strapi-blog ol {
+    font-size: 0.875rem;
+    line-height: 1.75rem;
+  }
+}
+@media screen and (max-width: 699px) {
+  .common-body2-text, .strapi-blog ul,
+  .strapi-blog ol {
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+  }
+}
+.common-body3-text {
+  font-size: 0.75rem;
+  line-height: 1.25rem;
+  font-weight: normal;
+}
+
+@media screen and (max-width: 1024px) {
+  .common-body3-text {
+    font-size: 0.75rem;
+    line-height: 1.75rem;
+  }
+}
+@media screen and (max-width: 699px) {
+  .common-body3-text {
+    font-size: 0.75rem;
+    line-height: 1.5rem;
+  }
+}
+.common-button-text {
+  font-size: 1rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+}
+
+@media screen and (max-width: 1024px) {
+  .common-button-text {
+    font-size: 1rem;
+    line-height: 1.75rem;
+  }
+}
+@media screen and (max-width: 699px) {
+  .common-button-text {
+    font-size: 0.875rem;
+    line-height: 1.5rem;
+  }
+}
+.common-all-caps {
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  text-transform: uppercase;
+  font-weight: normal;
+  letter-spacing: 0.05em;
+}
+
+@media screen and (max-width: 1024px) {
+  .common-all-caps {
+    font-size: 0.875rem;
+    line-height: 1.5rem;
+  }
+}
+@media screen and (max-width: 699px) {
+  .common-all-caps {
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+  }
+}
+.custom-text-white {
+  color: #ffffff;
+}
+
+.custom-text-grey50 {
+  color: #f8fafb;
+}
+
+.custom-text-grey100 {
+  color: #f0f3f5;
+}
+
+.custom-text-grey200 {
+  color: #dce0e0;
+}
+
+.custom-text-grey300 {
+  color: #c8cbcc;
+}
+
+.custom-text-grey400 {
+  color: #a1a5a6;
+}
+
+.custom-text-grey500 {
+  color: #888c8c;
+}
+
+.custom-text-grey600 {
+  color: #656869;
+}
+
+.custom-text-grey800 {
+  color: #484a4b;
+}
+
+.custom-text-grey900, .strapi-blog ul,
+.strapi-blog ol, .strapi-blog p {
+  color: #282a2b;
+}
+
+.custom-text-black {
+  color: #282a2b;
+}
+
+.custom-text-blue1 {
+  color: #4071df;
+}
+
+.custom-text-blue2 {
+  color: #f6f8fe;
+}
+
+.custom-text-green1 {
+  color: #22c373;
+}
+
+.custom-text-green2 {
+  color: #d3f3e3;
+}
+
+.custom-text-purple1 {
+  color: #a656f6;
+}
+
+.custom-text-purple2 {
+  color: #fbf7ff;
+}
+
+.custom-text-orange {
+  color: #ca8000;
+}
+
+.background-custom-white {
+  background-color: #ffffff;
+}
+
+.background-custom-grey50 {
+  background-color: #f8fafb;
+}
+
+.background-custom-grey100 {
+  background-color: #f0f3f5;
+}
+
+.background-custom-grey200 {
+  background-color: #dce0e0;
+}
+
+.background-custom-grey300 {
+  background-color: #c8cbcc;
+}
+
+.background-custom-grey400 {
+  background-color: #a1a5a6;
+}
+
+.background-custom-grey500 {
+  background-color: #888c8c;
+}
+
+.background-custom-grey600 {
+  background-color: #656869;
+}
+
+.background-custom-grey800 {
+  background-color: #484a4b;
+}
+
+.background-custom-grey900 {
+  background-color: #282a2b;
+}
+
+.background-custom-black {
+  background-color: #282a2b;
+}
+
+.background-custom-blue1 {
+  background-color: #4071df;
+}
+
+.background-custom-blue2 {
+  background-color: #f6f8fe;
+}
+
+.background-custom-green1 {
+  background-color: #22c373;
+}
+
+.background-custom-green2 {
+  background-color: #d3f3e3;
+}
+
+.background-custom-purple1 {
+  background-color: #a656f6;
+}
+
+.background-custom-purple2 {
+  background-color: #fbf7ff;
+}
+
+.background-custom-darkBlue {
+  background-color: #fbf7ff;
+}
+
+.background-text-gradient-1 {
+  background: linear-gradient(116.06deg, #b720fe 2.71%, #4376e8 51.06%, #8fb1fd 91.36%);
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+}
+
+.freelancer-text-gradient {
+  background: -webkit-gradient(linear, left top, left bottom, from(#71bafd), color-stop(31.71%, #4071df));
+  background: linear-gradient(180deg, #71bafd 0%, #4071df 31.71%);
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+}
+
+.homepage-hero-linear-gradient {
+  background: linear-gradient(108deg, #66a2f2 15.66%, #4a8ae1 34.46%, #337bdd 43.09%, #3473c7 73.7%, #1c5199 98.51%);
+}
+
+.background-bg-gradient-1 {
+  background: -webkit-gradient(linear, left top, left bottom, from(#e7fdfb), to(#ceefec));
+  background: linear-gradient(180deg, #e7fdfb 0%, #ceefec 100%);
+}
+
+.background-bg-gradient-2 {
+  background: -webkit-gradient(linear, left top, left bottom, from(#ede7fd), to(#e2edff));
+  background: linear-gradient(180deg, #ede7fd 0%, #e2edff 100%);
+}
+
+.background-bg-gradient-3 {
+  background: -webkit-gradient(linear, left top, left bottom, from(#ede7fd), to(#ffebff));
+  background: linear-gradient(180deg, #ede7fd 0%, #ffebff 100%);
+}
+
+.background-bg-gradient-4 {
+  background: -webkit-gradient(linear, left top, left bottom, from(#e2ebff), to(#dcf2fa));
+  background: linear-gradient(180deg, #e2ebff 0%, #dcf2fa 100%);
+}
+
+.custom-border-blue {
+  border-color: #4071df;
+}
+
+.custom-border-grey200 {
+  border-color: #dce0e0;
+}
+
+.hover-custom-border-grey400:hover {
+  border-color: #a1a5a6 !important;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.custom-border-grey600 {
+  border-color: #656869;
+}
+
+.custom-border-white {
+  border-color: #ffffff;
+}
+
+.accordion-answer-visible {
+  max-height: 500px;
+}
+
+.get-light-image {
+  -webkit-filter: brightness(100);
+          filter: brightness(100);
+}
+
+.get-light-image-onhover:hover {
+  -webkit-filter: brightness(100);
+          filter: brightness(100);
+}
+
+.border-circular {
+  border-radius: 50%;
+}
+
+.sign-up-blue-btn-drop-shadow {
+  -webkit-box-shadow: 0px 2px 10px 0px rgba(64, 113, 223, 0.2), inset 0px 0px 7px 1px rgba(255, 255, 255, 0.2509803922);
+          box-shadow: 0px 2px 10px 0px rgba(64, 113, 223, 0.2), inset 0px 0px 7px 1px rgba(255, 255, 255, 0.2509803922); /* Inset shadow */
+}
+
+.list-style-alphabate {
+  list-style-type: lower-alpha;
+}
+
+.list-style-alphabate-upper {
+  list-style-type: upper-alpha;
+}
+
+.list-style-roman {
+  list-style-type: lower-roman;
+}
+
+.scroll-snap-horizontal-parent {
+  -ms-scroll-snap-type: x mandatory;
+      scroll-snap-type: x mandatory;
+}
+
+.scroll-snap-horizontal-child {
+  scroll-snap-align: start;
+}
+
+.scroll-snap-horizontal-child-lg {
+  scroll-snap-align: start;
+}
+
+@media screen and (max-width: 640px) {
+  .scroll-snap-horizontal-child-lg {
+    scroll-snap-align: none;
+  }
+}
+.scroll-snap-horizontal-child-end {
+  scroll-snap-align: end;
+}
+
+.scroll-snap-horizontal-child-center {
+  scroll-snap-align: center;
+}
+
+.overflow-scrollbarHidden::-webkit-scrollbar {
+  display: none;
+}
+
+.tooltip-child {
+  cursor: pointer;
+}
+
+.tooltip-child:hover ~ .tooltip-container {
+  opacity: 1 !important;
+  z-index: 1 !important;
+}
+
+.strapi-blog ul,
+.strapi-blog ol {
+  padding-left: 1.8rem;
+  margin-bottom: 1.25rem;
+  list-style-type: disc;
+  margin-left: 0.5rem;
+  margin: 1rem 0;
+}
+.strapi-blog li {
+  margin-bottom: 0.5rem;
+}
+.strapi-blog a {
+  color: #4071df;
+  text-decoration: none;
+}
+.strapi-blog a:hover {
+  color: #2256ca;
+}
+.strapi-blog img {
+  padding: 20px 0px;
+  width: 100%;
+  -o-object-position: center;
+     object-position: center;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: auto;
+}/*# sourceMappingURL=Typrography.css.map */

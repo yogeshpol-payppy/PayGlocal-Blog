@@ -1,0 +1,70 @@
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.navbar-white-background {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.navbar-signup-btn {
+  background-color: rgba(255, 255, 255, 0.1215686275);
+}
+.navbar-signup-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2431372549);
+}
+
+.payglocal-navbar-parent-link-container:hover .payglocal-navbar-link-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.payglocal-navbar-link-container {
+  display: none;
+}
+
+@media screen and (max-width: 1023px) {
+  .navbar-responsive-content {
+    position: absolute;
+    background-color: white;
+    width: 100%;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    height: 100vh;
+    top: 0;
+    z-index: 20;
+  }
+  .payglocal-navbar-parent-link {
+    color: black;
+  }
+  .navbar-responsive-content-visible {
+    left: 0;
+  }
+  .navbar-responsive-content-hidden {
+    left: 100%;
+  }
+  .all-absolute-nav-links {
+    color: black;
+  }
+  .payglocal-navbar-link-container {
+    position: initial;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .payglocal-navbar-link-container::-webkit-scrollbar {
+    display: none;
+  }
+  .visibleflex {
+    max-height: 1000px;
+    overflow: auto;
+  }
+  .hiddenflex {
+    max-height: 0;
+    overflow: hidden;
+  }
+}/*# sourceMappingURL=PayglocalNavbar.css.map */

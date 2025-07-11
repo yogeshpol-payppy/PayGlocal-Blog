@@ -1,0 +1,61 @@
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.rotate-reverse {
+  -webkit-transform: rotate(-1) !important;
+          transform: rotate(-1) !important;
+}
+
+.max-width-1000 {
+  max-width: 62.5rem;
+}
+
+.z-index-2 {
+  z-index: 2;
+}
+
+.one-platform-header {
+  min-height: 90vh;
+}
+
+.one-platform-header-title {
+  max-width: 43.75rem;
+}
+
+.one-platform-header-para {
+  max-width: 23.75rem;
+}
+
+.one-platform-grid-two-box-container {
+  max-width: 62.5rem;
+}
+
+.one-platform-section-card-container {
+  max-width: 32.75rem;
+}
+.one-platform-section-card-container:hover .one-platform-section-card-rounded-circle {
+  background-color: black;
+  top: 15px;
+  right: 15px;
+}
+.one-platform-section-card-container:hover .one-platform-arrow-right-img {
+  -webkit-filter: brightness(100);
+          filter: brightness(100);
+}
+
+.we-also-have-btns:hover .one-platform-section-card-rounded-circle {
+  background-color: black;
+}
+.we-also-have-btns:hover .one-platform-arrow-right-img {
+  -webkit-filter: brightness(100);
+          filter: brightness(100);
+}
+
+.open-position-card-container:hover .open-position-card-img {
+  -webkit-filter: brightness(100);
+          filter: brightness(100);
+}/*# sourceMappingURL=OnePlatform.css.map */

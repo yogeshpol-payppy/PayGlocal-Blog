@@ -1,0 +1,29 @@
+User-agent: *
+User-agent: AdsBot-Google
+Disallow: https://payglocal.in/compliance
+
+User-agent: *
+User-agent: AdsBot-Google
+Disallow: https://payglocal.in/merchant-terms
+
+User-agent: *
+User-agent: AdsBot-Google
+Disallow: https://payglocal.in/privacy-policy-for-payments-page
+
+User-agent: *
+User-agent: AdsBot-Google
+Disallow: https://payglocal.in/privacy-policy-for-clients
+
+User-agent: *
+User-agent: AdsBot-Google
+Disallow: https://payglocal.in/cookie-policy
+
+User-agent: *
+User-agent: AdsBot-Google
+Disallow: https://payglocal.in/grievance-redressal
+
+User-agent: *
+User-agent: AdsBot-Google
+Disallow: https://payglocal.in/zero-tolerance-compliance-centre
+
+Sitemap: https://www.example.com/sitemap.xml

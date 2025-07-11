@@ -1,0 +1,24 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+                                //modal
+
+.fire-side-chat-modal-outer-container{
+    background-color: rgba(0, 0, 0, 0.448);
+}
+.fire-side-chat-modal-inner-container{
+    max-width: 702px;
+    max-height: 75vh;
+    overflow-y: auto;
+    &::-webkit-scrollbar{
+        display: none;
+    }
+}
+@media screen and (max-width:640px) {
+    .fire-side-chat-modal-inner-container{
+        max-width: 90vw;
+    }
+}

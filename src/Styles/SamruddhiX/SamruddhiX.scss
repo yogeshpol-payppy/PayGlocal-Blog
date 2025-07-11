@@ -1,0 +1,41 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+                                        //header
+        
+// .samx-header{
+// }
+// .white-absolute-header-text{
+//     background: linear-gradient(40%,#BBD0FF 10%,#BBD0FF 10%);
+//     color: #ffffff41;
+// }
+.screening-result-text{
+    // width: 438px;
+    background-image: url("../../Images/SamruddhiX/Polygon.svg");
+    background-position: center;
+    background-size: contain;
+}
+
+.RightToLeftSlide,.LeftToRightSlide{
+    animation-name: LeftToRightSlide;
+    animation-duration: 25s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    text-wrap: nowrap;
+}
+.RightToLeftSlide{
+    animation-direction: reverse;
+}
+.LeftToRightSlide{
+    animation-name: LeftToRightSlide;
+}
+
+
+@keyframes  LeftToRightSlide {
+    to{
+        transform: translate(calc(50% - 0.25rem));
+    }
+}

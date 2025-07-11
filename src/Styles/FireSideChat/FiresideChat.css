@@ -1,0 +1,25 @@
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.fire-side-chat-modal-outer-container {
+  background-color: rgba(0, 0, 0, 0.448);
+}
+
+.fire-side-chat-modal-inner-container {
+  max-width: 702px;
+  max-height: 75vh;
+  overflow-y: auto;
+}
+.fire-side-chat-modal-inner-container::-webkit-scrollbar {
+  display: none;
+}
+
+@media screen and (max-width: 640px) {
+  .fire-side-chat-modal-inner-container {
+    max-width: 90vw;
+  }
+}/*# sourceMappingURL=FireSideChat.css.map */

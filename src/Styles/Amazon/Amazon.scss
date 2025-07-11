@@ -1,0 +1,83 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+                                                //navbar
+
+
+@media screen and (max-width:1024px) {
+    .market-payglocal-logo{
+        width: 224.66px;
+        height: 40px;        
+    }
+}
+@media screen and (max-width:640px) {
+    .market-payglocal-logo{
+        width: 134.8px;
+        height: 24px;        
+    }
+}
+
+                                                //section 1- local accounts section 
+.amazon-local-account-section{
+    min-height: 881px;
+    z-index: 0;
+    &::after{
+        content: '';
+        height: 581px;
+        width: 160%;
+        position: absolute;
+        top: 55px;
+        left: -30px;
+        transform: rotate(-5deg);
+        background-color: #FDF0E3;
+        z-index: 2;
+    }
+}
+
+@media screen and (max-width:1024px) {
+    .amazon-local-account-section{
+        &::after{
+            height: 750px;
+            top: 45px;
+
+        }
+    }
+}
+@media screen and (max-width:640px) {
+    .amazon-local-account-section{
+        &::after{
+            height: 600px;
+            top: 85px;
+
+        }
+    }
+}
+
+
+                                                    //modal
+                        
+.amazon-modal-parent-container{
+    background-color: rgba(53, 52, 52, 0.417);
+}
+.amazon-modal-main-container{
+    max-height: 75vh;
+    // width: ;
+    overflow-y: auto;
+    &::-webkit-scrollbar{
+        display: none;
+    }
+}
+
+@media screen and (max-width:1024px) {
+    .amazon-modal-main-container{
+        max-width: 70vw;
+    }
+}
+@media screen and (max-width:640px) {
+    .amazon-modal-main-container{
+        max-width: 90vw;
+    }
+}

@@ -1,0 +1,441 @@
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.get-light-image {
+  -webkit-filter: brightness(100);
+          filter: brightness(100);
+}
+
+.z-index1 {
+  z-index: 1;
+}
+
+.z-index2 {
+  z-index: 2;
+}
+
+.scrollbarhidden::-webkit-scrollbar {
+  display: none;
+}
+
+.payglocal-home-header {
+  min-height: 100vh;
+  background: linear-gradient(108deg, #66A2F2 15.66%, #4A8AE1 34.46%, #337BDD 43.09%, #3473C7 73.7%, #1C5199 98.51%);
+}
+
+.payglocal-home-header-video {
+  border-radius: 2.05rem;
+}
+
+.payglocal-home-header-center-content {
+  max-width: 54rem;
+}
+
+.payglocal-home-header-center-content-image-parent-container {
+  max-width: 90rem;
+}
+
+.home-header-image-video-parent-container {
+  max-width: 35rem;
+  min-height: 600px;
+}
+
+@media screen and (min-width: 1600px) {
+  .payglocal-home-header {
+    min-height: 50vh;
+  }
+}
+@media screen and (max-width: 1023px) {
+  .payglocal-home-header-center-content-image-parent-container {
+    max-width: 100%;
+  }
+  .home-header-image-video-parent-container {
+    min-height: 400px;
+  }
+}
+@media screen and (max-width: 640px) {
+  .home-header-image-video-parent-container {
+    min-height: 300px;
+    left: 25px;
+  }
+}
+.payglocal-home-section1-parent-container {
+  max-width: 75rem;
+  width: 100%;
+}
+
+.homepage-section1-subheading {
+  max-width: 48rem;
+}
+
+.home-left-arrow-btn:hover {
+  border-color: #EAEAEA;
+}
+
+.section-1-testimonial-info-relative-container {
+  min-height: 514px;
+}
+
+.section-1-testimonial-info-absolute-container {
+  width: 100%;
+}
+.section-1-testimonial-info-absolute-container::-webkit-scrollbar {
+  display: none;
+}
+
+.section-1-testimonial-info-container::-webkit-scrollbar {
+  display: none;
+}
+
+.testimonial-signup-btn-container {
+  opacity: 0;
+}
+
+.payglocal-section1-testimonial-card {
+  max-width: 24.75rem;
+  height: 510px;
+}
+.payglocal-section1-testimonial-card:hover .testimonial-card-bg-img {
+  top: 12px;
+}
+.payglocal-section1-testimonial-card:hover .testimonial-card-img-div {
+  height: 140px;
+}
+.payglocal-section1-testimonial-card:hover .testimonial-signup-btn-container {
+  max-height: 300px;
+  opacity: 1;
+  overflow: visible;
+}
+
+.testimonial-card-img-div {
+  height: 216px;
+}
+
+@media screen and (max-width: 1024px) {
+  .payglocal-section1-testimonial-card {
+    height: 610px !important;
+  }
+  .testimonial-card-bg-img {
+    top: 12px;
+  }
+  .testimonial-card-img-div {
+    height: 216px !important;
+  }
+  .testimonial-signup-btn-container {
+    min-height: -webkit-fit-content !important;
+    min-height: -moz-fit-content !important;
+    min-height: fit-content !important;
+    max-height: auto !important;
+    opacity: 1 !important;
+  }
+}
+@media screen and (max-width: 640px) {
+  .payglocal-section1-testimonial-card {
+    height: 600px !important;
+    max-width: 300px !important;
+  }
+}
+.home-section2-title {
+  max-width: 60rem;
+}
+
+.home-section2-para {
+  max-width: 40rem;
+}
+
+.home-section2-grid-parent-container {
+  max-width: 75rem;
+  width: 100%;
+}
+
+.pay-only-transaction-para {
+  max-width: 18.25rem;
+  width: 100%;
+}
+
+.document-charges-div {
+  width: 14.021rem;
+}
+
+.collect-global-payments-container {
+  min-height: 31.938rem;
+}
+
+.collect-global-payments-title-para-container {
+  max-width: 23.438rem;
+  width: 100%;
+}
+
+.compliance-management-container {
+  min-height: 22.625rem;
+}
+
+.effortless-compliance-management-title-para-container {
+  max-width: 17.2rem;
+}
+
+.track-get-status-container {
+  min-height: 22.125rem;
+}
+
+.track-and-get-status-container {
+  max-width: 15.688rem;
+}
+
+.smart-payment-collection-container {
+  min-height: 31.25rem;
+}
+
+.smart-payment-collection-title-para-container {
+  max-width: 26.625rem;
+}
+
+@media screen and (max-width: 1024px) {
+  .document-charges-div {
+    width: 12.042rem;
+  }
+  .collect-global-payments-container, .compliance-management-container, .track-get-status-container, .smart-payment-collection-container {
+    min-height: -webkit-fit-content;
+    min-height: -moz-fit-content;
+    min-height: fit-content;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .collect-global-payments-title-para-container {
+    max-width: 33.813rem;
+  }
+  .home-section2-para {
+    max-width: 100%;
+  }
+  .effortless-compliance-management-title-para-container {
+    max-width: 24.375rem;
+    width: 100%;
+  }
+  .track-and-get-status-container {
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    width: 100%;
+  }
+  .track-and-get-status-img {
+    height: auto;
+  }
+}
+@media screen and (max-width: 640px) {
+  .collect-global-payments-title-para-container, .effortless-compliance-management-title-para-container {
+    max-width: 17rem;
+  }
+}
+.payglocal-home-section3-accept-payments-container {
+  max-width: 34.875rem;
+}
+
+.accept-payments-info-boxes-parent-container {
+  max-width: 27.75rem;
+}
+
+.accept-payments-info-boxes {
+  max-width: 13.75rem;
+}
+
+.payglocal-section3-product-card-parent-relative-container {
+  min-height: 25.7rem;
+}
+
+.payglocal-section3-product-card-parent-absolute-container::-webkit-scrollbar {
+  display: none;
+}
+
+.payglocal-section3-product-card {
+  max-width: 23.75rem;
+  height: 25.7rem;
+}
+.payglocal-section3-product-card:hover .product-card-explore-btn-container {
+  margin-top: 0;
+}
+.payglocal-section3-product-card:hover .product-card-img-div {
+  height: 11.5rem;
+}
+.payglocal-section3-product-card:hover .product-card-bg-img {
+  top: 15px;
+}
+.payglocal-section3-product-card:hover .product-card-explore-btn-container {
+  max-height: 300px;
+}
+.payglocal-section3-product-card:hover .green-gradient {
+  background: -webkit-gradient(linear, left top, left bottom, from(#E7FDFB), to(#CEEFEC));
+  background: linear-gradient(180deg, #E7FDFB 0%, #CEEFEC 100%);
+}
+.payglocal-section3-product-card:hover .blue-gradient {
+  background: -webkit-gradient(linear, left top, left bottom, from(#EDE7FD), to(#E2EDFF));
+  background: linear-gradient(180deg, #EDE7FD 0%, #E2EDFF 100%);
+}
+.payglocal-section3-product-card:hover .pink-gradient {
+  background: -webkit-gradient(linear, left top, left bottom, from(#E2EBFF), to(#DCF2FA));
+  background: linear-gradient(180deg, #E2EBFF 0%, #DCF2FA 100%);
+}
+.payglocal-section3-product-card:hover .skyblue-gradient {
+  background: -webkit-gradient(linear, left top, left bottom, from(#EDE7FD), to(#FFEBFF));
+  background: linear-gradient(180deg, #EDE7FD 0%, #FFEBFF 100%);
+}
+
+.product-card-img-div {
+  height: 15rem;
+}
+
+@media screen and (max-width: 1024px) {
+  .payglocal-home-section3-accept-payments-container, .accept-payments-info-boxes-parent-container {
+    max-width: 100%;
+  }
+  .accept-payments-info-boxes {
+    max-width: 49%;
+  }
+  .payglocal-section3-product-card {
+    height: 26rem;
+  }
+  .product-card-img-div {
+    height: 11.5rem;
+  }
+  .product-card-explore-btn-container {
+    min-height: -webkit-fit-content;
+    min-height: -moz-fit-content;
+    min-height: fit-content;
+  }
+}
+.optimise-payments-container {
+  max-width: 31.875rem;
+}
+
+@media screen and (max-width: 1023px) {
+  .optimise-payments-container {
+    max-width: 41.5rem;
+  }
+  .optimise-payments-three-paras {
+    max-width: 11.042rem;
+  }
+}
+@media screen and (max-width: 640px) {
+  .optimise-payments-three-paras {
+    max-width: 8.792rem;
+  }
+}
+.payglocal-home-section5 {
+  background: rgba(27, 51, 106, 0.7058823529);
+}
+
+.security-section-video {
+  width: 100%;
+  height: 1700px !important;
+  z-index: -1;
+  position: absolute;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.payglocal-home-section5-checklist-divs {
+  max-width: 9.646rem;
+}
+
+.payglocal-home-section5-read-more-btn {
+  background: rgba(255, 255, 255, 0.127);
+}
+
+.section-6-testimonial-info-inner-container {
+  width: 100%;
+}
+.section-6-testimonial-info-inner-container::-webkit-scrollbar {
+  display: none;
+}
+
+.section-6-testimonial-info-box {
+  max-width: 53.25rem;
+}
+.section-6-testimonial-info-box:first-child {
+  margin-left: 20vw;
+}
+.section-6-testimonial-info-box:last-child {
+  margin-right: 25vw;
+}
+
+@media screen and (max-width: 1024px) {
+  .section-6-testimonial-info-box:first-child, .section-6-testimonial-info-box:last-child {
+    margin: 0;
+  }
+}
+@media screen and (max-width: 1023px) {
+  .section-6-testimonial-info-box {
+    max-width: 40rem;
+  }
+  .section-6-testimonial-info-box:first-child, .section-6-testimonial-info-box:last-child {
+    margin: 0;
+  }
+}
+@media screen and (max-width: 640px) {
+  .section-6-testimonial-info-box {
+    max-width: 20.375rem;
+  }
+  .section6-testimonial-logo-img {
+    width: 120px;
+    height: auto;
+  }
+}
+.payglocal-home-section7 {
+  background-image: url("../../Images/Homepage/dot-grid.svg");
+  background-size: cover;
+}
+
+.integration-resources-divs {
+  max-width: 24.167rem;
+  width: 100%;
+}
+.integration-resources-divs:first-child {
+  background-color: #F0F2FA;
+}
+.integration-resources-divs:nth-child(2) {
+  background-color: #D47A46;
+}
+.integration-resources-divs:last-child {
+  background-color: #6E96F1;
+}
+
+@media screen and (max-width: 1024px) {
+  .integration-resources-divs {
+    max-width: 30.375rem !important;
+  }
+}
+.read-our-blogs-div {
+  max-width: 26.667rem;
+}
+
+@media screen and (max-width: 1024px) {
+  .read-our-blogs-div {
+    max-width: 30.875rem;
+  }
+  .payclocal-home-blog-img {
+    width: 100%;
+  }
+}
+.home-section9-contact-us-container {
+  max-width: 30.938rem;
+  width: 100%;
+}
+
+.start-account-section9-heading {
+  max-width: 25.813rem;
+}
+
+.home-section9-form-container {
+  max-width: 32.813rem;
+  width: 100%;
+}
+
+@media screen and (max-width: 1024px) {
+  .home-section9-contact-us-container, .start-account-section9-heading {
+    max-width: 100%;
+  }
+}/*# sourceMappingURL=payglocalHomepage.css.map */

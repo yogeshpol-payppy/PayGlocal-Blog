@@ -1,0 +1,78 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+                                //some custom classes 
+
+.rotate-reverse{
+    transform: rotate(-1) !important;
+}
+.max-width-1000{
+    max-width: 62.5rem;
+}
+.z-index-2{
+    z-index: 2;
+}
+
+                                                //header
+.one-platform-header{
+    min-height: 90vh;
+}
+.one-platform-header-title{
+    max-width: 43.75rem;
+}
+.one-platform-header-para{
+    max-width: 23.75rem;
+}
+
+                                                //section 1 - grid boxes
+.one-platform-grid-two-box-container{
+    max-width: 62.5rem;
+}
+// .green-gradient{
+// }
+// .blue-gradient{
+//     background: url('../../Images/OnePlatform/blue-gradient.svg');
+// }
+// .pink-gradient{
+//     background: url('../../Images/OnePlatform/pink-gradient.svg');
+// }
+// .purple-gradient{
+//     background: url('../../Images/OnePlatform/purple-gradient.svg');
+// }
+                                                //section 2 - more products
+.one-platform-section-card-container{
+    max-width: 32.75rem;
+    &:hover .one-platform-section-card-rounded-circle{
+        background-color: black;
+        top: 15px;
+        right: 15px;
+    }
+    &:hover .one-platform-arrow-right-img{
+        filter: brightness(100);
+    }
+}
+.we-also-have-btns{
+    &:hover .one-platform-section-card-rounded-circle{
+        background-color: black;
+    }
+    &:hover .one-platform-arrow-right-img{
+        filter: brightness(100);
+    }
+}
+                                            
+
+
+//career page style
+
+.open-position-card-container{
+    &:hover .open-position-card-img{
+        filter: brightness(100);
+    }
+}
+
+
+
+
