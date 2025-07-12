@@ -487,6 +487,8 @@
 .strapi-blog p, .strapi-blog ol, .strapi-blog ul {
   font-size: 18px;
   line-height: 28px;
+  margin-bottom: 30px;
+  color: #484A4B;
 }
 @media (min-width: 768px) {
   .strapi-blog p, .strapi-blog ol, .strapi-blog ul {
@@ -500,6 +502,20 @@
     line-height: 32px;
   }
 }
+.strapi-blog table {
+  border: 1px solid #C8CBCC;
+  overflow: scroll;
+}
+.strapi-blog tr {
+  border-top: 1px solid #C8CBCC;
+}
+.strapi-blog td, .strapi-blog th {
+  font-size: 18px;
+  line-height: 28px;
+  margin-bottom: 30px;
+  border-left: 1px solid #C8CBCC;
+  padding: 20px;
+}
 .strapi-blog ul,
 .strapi-blog ol {
   padding-left: 1.8rem;
@@ -507,7 +523,7 @@
   list-style-type: disc;
 }
 .strapi-blog li {
-  margin-bottom: 0.5rem;
+  margin-bottom: 30px;
 }
 .strapi-blog h1 {
   font-size: 28px;

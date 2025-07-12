@@ -2,11 +2,14 @@
 import { Manrope } from 'next/font/google';
 import React, { useCallback, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import rehypeRaw from 'rehype-raw';
 
 //images
 import BreadCrumb from '@/Images/strapi-blog/breadcrumb-item.png';
 import BlogShare from '@/Images/strapi-blog/blog-share.png';
-// import PayglocalBlogLogo from '@/Images/strapi-blog/blog- thumbnail.png';
+import PayglocalBlogLogo from '@/Images/strapi-blog/blog- thumbnail.png';
 
 
 import Image from 'next/image';
@@ -64,27 +67,42 @@ const StrapiBlogSection = () => {
     //to fill the progress bar as per the scroll
     useEffect(() => {
         const handleScroll = () => {
-          const scrollTop = window.scrollY;
-          const docHeight = document.body.scrollHeight - window.innerHeight;
-          const scrollPercent = (scrollTop / docHeight) * 100;
-          const bar = document.getElementById('scroll-progress-bar');
-          if (bar) {
-            bar.style.width = `${scrollPercent}%`;
-          }
+            const scrollTop = window.scrollY;
+            const docHeight = document.body.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            const bar = document.getElementById('scroll-progress-bar');
+            if (bar) {
+                bar.style.width = `${scrollPercent}%`;
+            }
         };
-      
+
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
-      }, []);
-      
-      //to detect which content is visible in UI
-    
+    }, []);
+
+    //to extract the headings from the markdown  content
+    const getHeadingsFromMarkdown = (markdown) => {
+        const headingRegex = /^(#{1,6})\s+(.*)$/gm;
+        const matches = [...markdown.matchAll(headingRegex)];
+
+        return matches.map((match) => {
+            const level = match[1].length;
+            const text = match[2].trim();
+            const slug = text
+                .toLowerCase()
+                .replace(/[^\w\s-]/g, '')
+                .replace(/\s+/g, '-');
+
+            return { level, text, slug };
+        });
+    };
+
     return (
         <>
             {/* blue top border  */}
             <div className=" w-full fixed top-[76px]">
                 <div className="border-t custom-border-grey200 hidden lg:block">
-                    <div className="h-1 bg-[#4071DF] "  id="scroll-progress-bar"></div>
+                    <div className="h-1 bg-[#4071DF] " id="scroll-progress-bar"></div>
                 </div>
             </div>
             <div className=" w-full pt-14 lg:pt-24 "></div>
@@ -104,19 +122,13 @@ const StrapiBlogSection = () => {
                         <div className='max-w-[300px] w-full hidden lg:block '>
                             <div className="background-custom-blue2 flex flex-col gap-5 p-5  rounded-xl sticky top-24">
                                 <h6 className="common-h6-heading matterfont font-bold">In this blog</h6>
-                                {data?.content
-                                    ?.filter(item => item.type === 'heading')
-                                    ?.map((heading, index) => {
-                                        const text = heading.children?.[0]?.text || '';
-                                        const slug = text.toLowerCase().replace(/\s+/g, '-'); // create slug
-                                        return (
-                                            <div key={index} className="common-body1-text">
-                                                <a key={index} href={`#${slug}`} className={`common-body1-text active:text-blue-600 hover:text-blue-600 ${activeHeading===slug ? ' text-blue-600  ':' '}`}>
-                                                    {text}
-                                                </a>
-                                            </div>
-                                        );
-                                    })}
+                                {getHeadingsFromMarkdown(data?.content || '')?.map(({ text, slug }, index) => (
+                                    <div key={index} className="common-body1-text">
+                                        <a href={`#${slug}`} className={`common-body1-text active:text-blue-600 hover:text-blue-600 ${activeHeading === slug ? 'text-blue-600' : ''}`}>
+                                            {text}
+                                        </a>
+                                    </div>
+                                ))}
                             </div>
                         </div>
 
@@ -158,7 +170,51 @@ const StrapiBlogSection = () => {
 
                             <div className="flex flex-col gap-14 mt-10">
                                 <div className={"strapi-blog " + manrope.className}>
-                                    <BlocksRenderer content={data?.content || []}
+
+                                    <ReactMarkdown
+                                        children={data?.content}
+                                        remarkPlugins={[remarkGfm]}
+                                        rehypePlugins={[rehypeRaw]}
+                                        // className="prose max-w-none"
+                                        components={{
+                                            h1: ({ node, children }) => {
+                                                const text = children?.toString() || '';
+                                                const slug = text.toLowerCase().replace(/\s+/g, '-').replace(/[^\w\s-]/g, '');
+                                                return <h1 id={slug} className="font-bold mt-14 lg:mt-20 mb-5 text-3xl scroll-mt-28">{children}</h1>;
+                                            },
+                                            h2: ({ node, children }) => {
+                                                const text = children?.toString() || '';
+                                                const slug = text.toLowerCase().replace(/\s+/g, '-').replace(/[^\w\s-]/g, '');
+                                                return <h2 id={slug} className="font-bold mt-14 lg:mt-20 mb-5 text-2xl scroll-mt-28">{children}</h2>;
+                                            },
+                                            h3: ({ node, children }) => {
+                                                const text = children?.toString() || '';
+                                                const slug = text.toLowerCase().replace(/\s+/g, '-').replace(/[^\w\s-]/g, '');
+                                                return <h3 id={slug} className="font-bold mt-14 lg:mt-20 mb-5 text-xl scroll-mt-28">{children}</h3>;
+                                            },
+                                            h4: ({ node, children }) => {
+                                                const text = children?.toString() || '';
+                                                const slug = text.toLowerCase().replace(/\s+/g, '-').replace(/[^\w\s-]/g, '');
+                                                return <h4 id={slug} className="font-bold mt-14 lg:mt-20 mb-5 text-xl scroll-mt-28">{children}</h4>;
+                                            },
+                                            h5: ({ node, children }) => {
+                                                const text = children?.toString() || '';
+                                                const slug = text.toLowerCase().replace(/\s+/g, '-').replace(/[^\w\s-]/g, '');
+                                                return <h5 id={slug} className="font-bold mt-14 lg:mt-20 mb-5 text-xl scroll-mt-28">{children}</h5>;
+                                            },
+                                            h6: ({ node, children }) => {
+                                                const text = children?.toString() || '';
+                                                const slug = text.toLowerCase().replace(/\s+/g, '-').replace(/[^\w\s-]/g, '');
+                                                return <h6 id={slug} className="font-bold mt-14 lg:mt-20 mb-5 text-xl scroll-mt-28">{children}</h6>;
+                                            },
+                                            table: ({ node, ...props }) => (
+                                                <div className="overflow-x-auto ">
+                                                    <table className="" {...props} />
+                                                </div>
+                                            ),
+                                        }}
+                                    />
+                                    {/* <BlocksRenderer content={data?.content || []}
                                         blocks={{
                                             heading: ({ level, children }) => {
                                                 const text = children?.[0]?.props?.text || '';
@@ -168,9 +224,10 @@ const StrapiBlogSection = () => {
                                                 return (
                                                     <Tag id={slug} className="font-bold scroll-mt-28"> {children} </Tag>
                                                 );
-                                            }
+                                            },
+
                                         }}
-                                    />
+                                    /> */}
                                 </div>
                             </div>
 
