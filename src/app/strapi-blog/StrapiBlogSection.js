@@ -101,7 +101,7 @@ const StrapiBlogSection = () => {
         <>
             {/* blue top border  */}
             <div className=" w-full fixed top-[76px]">
-                <div className="border-t custom-border-grey200 hidden lg:block">
+                <div className="border-t custom-border-grey200 ">
                     <div className="h-1 bg-[#4071DF] " id="scroll-progress-bar"></div>
                 </div>
             </div>
