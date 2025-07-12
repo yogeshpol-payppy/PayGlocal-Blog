@@ -110,7 +110,7 @@ const StrapiBlogSection = () => {
             <section className={" flex items-center justify-center px-4 pb-20 sm:px-10 pt-6 w-full " + manrope.className}>
                 <div className="max-w-[1138px] w-full ">
 
-                    <div className="flex items-center gap-2 py-2">
+                    <div className="flex items-center gap-2 py-5 lg:py-2">
                         <div className="common-body2-text custom-text-grey600">Home</div>
                         <Image src={BreadCrumb} width={20} height={20} alt='BreadCrumb' />
                         <div className="common-body2-text custom-text-grey600">Blog</div>
@@ -180,35 +180,35 @@ const StrapiBlogSection = () => {
                                             h1: ({ node, children }) => {
                                                 const text = children?.toString() || '';
                                                 const slug = text.toLowerCase().replace(/\s+/g, '-').replace(/[^\w\s-]/g, '');
-                                                return <h1 id={slug} className="font-bold mt-14 lg:mt-20 mb-5 text-3xl scroll-mt-28">{children}</h1>;
+                                                return <h1 id={slug} className="font-bold mt-14 lg:mt-20 mb-5 text-3xl scroll-mt-28 matterfont">{children}</h1>;
                                             },
                                             h2: ({ node, children }) => {
                                                 const text = children?.toString() || '';
                                                 const slug = text.toLowerCase().replace(/\s+/g, '-').replace(/[^\w\s-]/g, '');
-                                                return <h2 id={slug} className="font-bold mt-14 lg:mt-20 mb-5 text-2xl scroll-mt-28">{children}</h2>;
+                                                return <h2 id={slug} className="font-bold mt-14 lg:mt-20 mb-5 text-2xl scroll-mt-28 matterfont">{children}</h2>;
                                             },
                                             h3: ({ node, children }) => {
                                                 const text = children?.toString() || '';
                                                 const slug = text.toLowerCase().replace(/\s+/g, '-').replace(/[^\w\s-]/g, '');
-                                                return <h3 id={slug} className="font-bold mt-14 lg:mt-20 mb-5 text-xl scroll-mt-28">{children}</h3>;
+                                                return <h3 id={slug} className="font-bold mt-14 lg:mt-20 mb-5 text-xl scroll-mt-28 matterfont">{children}</h3>;
                                             },
                                             h4: ({ node, children }) => {
                                                 const text = children?.toString() || '';
                                                 const slug = text.toLowerCase().replace(/\s+/g, '-').replace(/[^\w\s-]/g, '');
-                                                return <h4 id={slug} className="font-bold mt-14 lg:mt-20 mb-5 text-xl scroll-mt-28">{children}</h4>;
+                                                return <h4 id={slug} className="font-bold mt-14 lg:mt-20 mb-5 text-xl scroll-mt-28 matterfont">{children}</h4>;
                                             },
                                             h5: ({ node, children }) => {
                                                 const text = children?.toString() || '';
                                                 const slug = text.toLowerCase().replace(/\s+/g, '-').replace(/[^\w\s-]/g, '');
-                                                return <h5 id={slug} className="font-bold mt-14 lg:mt-20 mb-5 text-xl scroll-mt-28">{children}</h5>;
+                                                return <h5 id={slug} className="font-bold mt-14 lg:mt-20 mb-5 text-xl scroll-mt-28 matterfont">{children}</h5>;
                                             },
                                             h6: ({ node, children }) => {
                                                 const text = children?.toString() || '';
                                                 const slug = text.toLowerCase().replace(/\s+/g, '-').replace(/[^\w\s-]/g, '');
-                                                return <h6 id={slug} className="font-bold mt-14 lg:mt-20 mb-5 text-xl scroll-mt-28">{children}</h6>;
+                                                return <h6 id={slug} className="font-bold mt-14 lg:mt-20 mb-5 text-xl scroll-mt-28 matterfont">{children}</h6>;
                                             },
                                             table: ({ node, ...props }) => (
-                                                <div className="overflow-x-auto ">
+                                                <div className="overflow-x-auto mb-10">
                                                     <table className="" {...props} />
                                                 </div>
                                             ),
