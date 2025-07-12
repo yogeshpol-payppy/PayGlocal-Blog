@@ -1,8 +1,7 @@
 * {
   padding: 0;
   margin: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .screening-result-text {
@@ -12,14 +11,10 @@
 }
 
 .RightToLeftSlide, .LeftToRightSlide {
-  -webkit-animation-name: LeftToRightSlide;
-          animation-name: LeftToRightSlide;
-  -webkit-animation-duration: 25s;
-          animation-duration: 25s;
-  -webkit-animation-timing-function: linear;
-          animation-timing-function: linear;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
+  animation-name: LeftToRightSlide;
+  animation-duration: 25s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
   text-wrap: nowrap;
 }
 
@@ -28,20 +23,11 @@
 }
 
 .LeftToRightSlide {
-  -webkit-animation-name: LeftToRightSlide;
-          animation-name: LeftToRightSlide;
-}
-
-@-webkit-keyframes LeftToRightSlide {
-  to {
-    -webkit-transform: translate(calc(50% - 0.25rem));
-            transform: translate(calc(50% - 0.25rem));
-  }
+  animation-name: LeftToRightSlide;
 }
 
 @keyframes LeftToRightSlide {
   to {
-    -webkit-transform: translate(calc(50% - 0.25rem));
-            transform: translate(calc(50% - 0.25rem));
+    transform: translate(calc(50% - 0.25rem));
   }
 }/*# sourceMappingURL=SamruddhiX.css.map */

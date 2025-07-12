@@ -1,8 +1,7 @@
 * {
   padding: 0;
   margin: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .payglocal-about-us-header {
@@ -11,14 +10,10 @@
 }
 
 .about-us-img-carousel {
-  -webkit-animation-name: ScrollAnimation;
-          animation-name: ScrollAnimation;
-  -webkit-animation-duration: 40s;
-          animation-duration: 40s;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
-  -webkit-animation-timing-function: linear;
-          animation-timing-function: linear;
+  animation-name: ScrollAnimation;
+  animation-duration: 40s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
 }
 .about-us-img-carousel::-webkit-scrollbar {
   display: none;
@@ -26,27 +21,14 @@
 
 @media screen and (max-width: 640px) {
   .about-us-img-carousel {
-    -webkit-animation-duration: 5s;
-            animation-duration: 5s;
-  }
-}
-@-webkit-keyframes ScrollAnimation {
-  0% {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
-  }
-  100% {
-    -webkit-transform: translateX(-100%);
-            transform: translateX(-100%);
+    animation-duration: 5s;
   }
 }
 @keyframes ScrollAnimation {
   0% {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
+    transform: translateX(0);
   }
   100% {
-    -webkit-transform: translateX(-100%);
-            transform: translateX(-100%);
+    transform: translateX(-100%);
   }
 }/*# sourceMappingURL=AboutUs.css.map */

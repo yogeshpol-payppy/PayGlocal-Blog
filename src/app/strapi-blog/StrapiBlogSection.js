@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 //images
 import BreadCrumb from '@/Images/strapi-blog/breadcrumb-item.png';
 import BlogShare from '@/Images/strapi-blog/blog-share.png';
-import PayglocalBlogLogo from '@/Images/strapi-blog/blog- thumbnail.png';
+// import PayglocalBlogLogo from '@/Images/strapi-blog/blog- thumbnail.png';
 
 
 import Image from 'next/image';
@@ -20,6 +20,7 @@ const manrope = Manrope({
 const StrapiBlogSection = () => {
 
     const [data, setData] = useState({});
+    const [activeHeading, setActiveHeading] = useState('');
 
     //to fetch data from api
     const fetchBlog = async () => {
@@ -60,17 +61,35 @@ const StrapiBlogSection = () => {
         return (imgName ? (strapibaseUrl + imgName) : '');
     }
 
+    //to fill the progress bar as per the scroll
+    useEffect(() => {
+        const handleScroll = () => {
+          const scrollTop = window.scrollY;
+          const docHeight = document.body.scrollHeight - window.innerHeight;
+          const scrollPercent = (scrollTop / docHeight) * 100;
+          const bar = document.getElementById('scroll-progress-bar');
+          if (bar) {
+            bar.style.width = `${scrollPercent}%`;
+          }
+        };
+      
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+      }, []);
+      
+      //to detect which content is visible in UI
+    
     return (
         <>
             {/* blue top border  */}
-            <div className=" w-full  pt-24">
-                <div className="border-t custom-border-grey200">
-                    <div className="h-1 w-[240px] bg-[#4071DF] border border-blue-800"></div>
+            <div className=" w-full fixed top-[76px]">
+                <div className="border-t custom-border-grey200 hidden lg:block">
+                    <div className="h-1 bg-[#4071DF] "  id="scroll-progress-bar"></div>
                 </div>
             </div>
-
+            <div className=" w-full pt-14 lg:pt-24 "></div>
             {/* section  */}
-            <section className={" flex items-center justify-center px-4 pb-20 sm:px-10 sm:pb-28 pt-6 w-full " + manrope.className}>
+            <section className={" flex items-center justify-center px-4 pb-20 sm:px-10 pt-6 w-full " + manrope.className}>
                 <div className="max-w-[1138px] w-full ">
 
                     <div className="flex items-center gap-2 py-2">
@@ -78,30 +97,41 @@ const StrapiBlogSection = () => {
                         <Image src={BreadCrumb} width={20} height={20} alt='BreadCrumb' />
                         <div className="common-body2-text custom-text-grey600">Blog</div>
                         <Image src={BreadCrumb} width={20} height={20} alt='BreadCrumb' />
-                        <div className="common-body2-text custom-text-grey600">{data?.title}</div>
+                        <div className="common-body2-text custom-text-grey600 overflow-hidden whitespace-nowrap text-ellipsis">{data?.title}</div>
                     </div>
 
-                    <div className="flex flex-row gap-12 mt-5">
-                        <div className='max-w-[300px] w-full hidden lg:block'>
-                            <div className="background-custom-blue2 flex flex-col gap-5 p-5  rounded-xl">
+                    <div className="flex flex-row gap-12 mt-5  ">
+                        <div className='max-w-[300px] w-full hidden lg:block '>
+                            <div className="background-custom-blue2 flex flex-col gap-5 p-5  rounded-xl sticky top-24">
                                 <h6 className="common-h6-heading matterfont font-bold">In this blog</h6>
-                                <div className="common-body1-text">Lack of global payment options </div>
-                                <div className="common-body1-text">Lack of global payment options </div>
-                                <div className="common-body1-text">Lack of global payment options </div>
-                                <div className="common-body1-text">Lack of global payment options </div>
-                                <div className="common-body1-text">Lack of global payment options </div>
+                                {data?.content
+                                    ?.filter(item => item.type === 'heading')
+                                    ?.map((heading, index) => {
+                                        const text = heading.children?.[0]?.text || '';
+                                        const slug = text.toLowerCase().replace(/\s+/g, '-'); // create slug
+                                        return (
+                                            <div key={index} className="common-body1-text">
+                                                <a key={index} href={`#${slug}`} className={`common-body1-text active:text-blue-600 hover:text-blue-600 ${activeHeading===slug ? ' text-blue-600  ':' '}`}>
+                                                    {text}
+                                                </a>
+                                            </div>
+                                        );
+                                    })}
                             </div>
                         </div>
 
                         <div className='w-full'>
 
-                            <div className="flex flex-col gap-10">
+                            <div className="flex flex-col gap-4 lg:gap-10">
 
-                                <div className="flex flex-col gap-6">
+                                <div className="flex flex-col gap-4 lg:gap-6">
 
-                                    <div className="flex justify-between items-center w-full ">
-                                        <div className="flex items-center gap-4">
-                                            <div className=".common-body1-text custom-text-grey500">{getFormattedDate()}  |  {data?.read_min} min read</div>
+                                    <div className="flex justify-between items-center w-full gap-2">
+                                        <div className="flex items-center gap-4 flex-wrap">
+                                            <div className=".common-body1-text custom-text-grey500 flex items-center flex-wrap gap-x-2">
+                                                <div>{getFormattedDate()}  &nbsp;| </div>
+                                                <div>{data?.read_min} min read</div>
+                                            </div>
                                             <div className="rounded-full py-1 px-4 bg-[#F6F8FE]">
                                                 <span className="common-body2-tex  custom-text-blue1">{data?.category}</span>
                                             </div>
@@ -116,8 +146,10 @@ const StrapiBlogSection = () => {
 
                                 <h3 className="common-h3-heading custom-text-grey900 matterfont">{data?.title}</h3>
 
-                                <div className="flex flex-row gap-5 items-center">
-                                    <Image src={getImgUrl(data?.author_img)} width={48} height={48} alt='BlogShare' />
+                                <div className="flex flex-row gap-4 items-center">
+                                    <div className="border custom-border-grey200 rounded-full w-12 h-12 overflow-hidden">
+                                        <Image src={getImgUrl(data?.author_img)} width={48} height={48} alt='BlogShare' />
+                                    </div>
                                     <div className="common-body1-text">{data?.author}</div>
                                 </div>
 
@@ -125,8 +157,20 @@ const StrapiBlogSection = () => {
                             </div>
 
                             <div className="flex flex-col gap-14 mt-10">
-                                <div className="strapi-blog">
-                                    <BlocksRenderer content={data?.content || []} />
+                                <div className={"strapi-blog " + manrope.className}>
+                                    <BlocksRenderer content={data?.content || []}
+                                        blocks={{
+                                            heading: ({ level, children }) => {
+                                                const text = children?.[0]?.props?.text || '';
+                                                const slug = text.toLowerCase().replace(/\s+/g, '-');
+                                                const Tag = `h${level}`;
+
+                                                return (
+                                                    <Tag id={slug} className="font-bold scroll-mt-28"> {children} </Tag>
+                                                );
+                                            }
+                                        }}
+                                    />
                                 </div>
                             </div>
 

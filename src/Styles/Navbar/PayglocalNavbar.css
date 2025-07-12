@@ -1,8 +1,7 @@
 * {
   padding: 0;
   margin: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .navbar-white-background {
@@ -17,8 +16,6 @@
 }
 
 .payglocal-navbar-parent-link-container:hover .payglocal-navbar-link-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
 
@@ -31,9 +28,7 @@
     position: absolute;
     background-color: white;
     width: 100%;
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
+    align-items: flex-start;
     height: 100vh;
     top: 0;
     z-index: 20;
@@ -52,8 +47,6 @@
   }
   .payglocal-navbar-link-container {
     position: initial;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
   }
   .payglocal-navbar-link-container::-webkit-scrollbar {

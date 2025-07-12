@@ -1,13 +1,11 @@
 * {
   padding: 0;
   margin: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .rotate-reverse {
-  -webkit-transform: rotate(-1) !important;
-          transform: rotate(-1) !important;
+  transform: rotate(-1) !important;
 }
 
 .max-width-1000 {
@@ -43,19 +41,16 @@
   right: 15px;
 }
 .one-platform-section-card-container:hover .one-platform-arrow-right-img {
-  -webkit-filter: brightness(100);
-          filter: brightness(100);
+  filter: brightness(100);
 }
 
 .we-also-have-btns:hover .one-platform-section-card-rounded-circle {
   background-color: black;
 }
 .we-also-have-btns:hover .one-platform-arrow-right-img {
-  -webkit-filter: brightness(100);
-          filter: brightness(100);
+  filter: brightness(100);
 }
 
 .open-position-card-container:hover .open-position-card-img {
-  -webkit-filter: brightness(100);
-          filter: brightness(100);
+  filter: brightness(100);
 }/*# sourceMappingURL=OnePlatform.css.map */

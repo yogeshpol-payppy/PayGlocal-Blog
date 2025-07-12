@@ -628,22 +628,50 @@ $darkBlue: #1b336a;
   z-index: 1 !important;
 }
 
-//blog style
+// Variables for breakpoints
+$desktop: 1024px;
+$tablet: 768px;
+
+// Typography Mixins
+@mixin heading-style($fs-desktop, $lh-desktop, $fs-tablet, $lh-tablet, $fs-mobile, $lh-mobile) {
+  font-size: #{$fs-mobile}px;
+  line-height: #{$lh-mobile}px;
+
+  @media (min-width: $tablet) {
+    font-size: #{$fs-tablet}px;
+    line-height: #{$lh-tablet}px;
+  }
+
+  @media (min-width: $desktop) {
+    font-size: #{$fs-desktop}px;
+    line-height: #{$lh-desktop}px;
+  }
+}
+
+// Blog Content Styling
 .strapi-blog {
-  p {
-    @extend .common-body1-text;
+  p, ol, ul {
     @extend .custom-text-grey900;
+    font-size: 18px;
+    line-height: 28px;
+
+    @media (min-width: $tablet) {
+      font-size: 18px;
+      line-height: 28px;
+    }
+
+    @media (min-width: $desktop) {
+      font-size: 20px;
+      line-height: 32px;
+    }
   }
 
   ul,
   ol {
-    @extend .common-body2-text;
     @extend .custom-text-grey900;
     padding-left: 1.8rem;
-    margin-bottom: 1.25rem;
+    margin: 1rem 0 1.25rem 0.5rem;
     list-style-type: disc;
-    margin-left: .5rem;
-    margin: 1rem 0;
   }
 
   li {
@@ -651,32 +679,41 @@ $darkBlue: #1b336a;
   }
 
   h1 {
-    @extend .common-h1-heading;
+    @extend .matterfont;
+    @include heading-style(48, 56, 36, 44, 28, 32);
+    font-weight: bold;
   }
 
   h2 {
-    @extend .common-h2-heading;
+    @extend .matterfont;
+    @include heading-style(36, 44, 28, 40, 24, 28);
+    font-weight: bold;
   }
 
   h3 {
-    @extend .common-h3-heading;
+    @extend .matterfont;
+    @include heading-style(28, 36, 24, 32, 22, 28);
+    font-weight: bold;
   }
 
   h4 {
-    @extend .common-h4-heading;
+    @extend .matterfont;
+    @include heading-style(24, 32, 22, 32, 20, 28);
+    font-weight: bold;
   }
 
-  h5 {
-    @extend .common-h5-heading;
-  }
-
+  h5,
   h6 {
-    @extend .common-h6-heading;
+    @extend .matterfont;
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: bold;
   }
 
   a {
     color: $blue1;
     text-decoration: none;
+
     &:hover {
       color: darken($blue1, 10%);
     }
@@ -685,8 +722,11 @@ $darkBlue: #1b336a;
   img {
     padding: 20px 0px;
     width: 100%;
-    object-position: center;
-    object-fit: cover;
     height: auto;
+    object-fit: cover;
+    object-position: center;
   }
+}
+html{
+    scroll-behavior: smooth;
 }

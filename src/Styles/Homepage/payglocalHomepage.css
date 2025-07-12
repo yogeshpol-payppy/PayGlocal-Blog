@@ -1,13 +1,11 @@
 * {
   padding: 0;
   margin: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .get-light-image {
-  -webkit-filter: brightness(100);
-          filter: brightness(100);
+  filter: brightness(100);
 }
 
 .z-index1 {
@@ -126,7 +124,6 @@
     height: 216px !important;
   }
   .testimonial-signup-btn-container {
-    min-height: -webkit-fit-content !important;
     min-height: -moz-fit-content !important;
     min-height: fit-content !important;
     max-height: auto !important;
@@ -199,12 +196,9 @@
     width: 12.042rem;
   }
   .collect-global-payments-container, .compliance-management-container, .track-get-status-container, .smart-payment-collection-container {
-    min-height: -webkit-fit-content;
     min-height: -moz-fit-content;
     min-height: fit-content;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    align-items: center;
   }
   .collect-global-payments-title-para-container {
     max-width: 33.813rem;
@@ -217,7 +211,6 @@
     width: 100%;
   }
   .track-and-get-status-container {
-    height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
     width: 100%;
@@ -268,19 +261,15 @@
   max-height: 300px;
 }
 .payglocal-section3-product-card:hover .green-gradient {
-  background: -webkit-gradient(linear, left top, left bottom, from(#E7FDFB), to(#CEEFEC));
   background: linear-gradient(180deg, #E7FDFB 0%, #CEEFEC 100%);
 }
 .payglocal-section3-product-card:hover .blue-gradient {
-  background: -webkit-gradient(linear, left top, left bottom, from(#EDE7FD), to(#E2EDFF));
   background: linear-gradient(180deg, #EDE7FD 0%, #E2EDFF 100%);
 }
 .payglocal-section3-product-card:hover .pink-gradient {
-  background: -webkit-gradient(linear, left top, left bottom, from(#E2EBFF), to(#DCF2FA));
   background: linear-gradient(180deg, #E2EBFF 0%, #DCF2FA 100%);
 }
 .payglocal-section3-product-card:hover .skyblue-gradient {
-  background: -webkit-gradient(linear, left top, left bottom, from(#EDE7FD), to(#FFEBFF));
   background: linear-gradient(180deg, #EDE7FD 0%, #FFEBFF 100%);
 }
 
@@ -302,7 +291,6 @@
     height: 11.5rem;
   }
   .product-card-explore-btn-container {
-    min-height: -webkit-fit-content;
     min-height: -moz-fit-content;
     min-height: fit-content;
   }

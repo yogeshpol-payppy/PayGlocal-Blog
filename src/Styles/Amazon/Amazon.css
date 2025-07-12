@@ -1,8 +1,7 @@
 * {
   padding: 0;
   margin: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 @media screen and (max-width: 1024px) {
@@ -28,8 +27,7 @@
   position: absolute;
   top: 55px;
   left: -30px;
-  -webkit-transform: rotate(-5deg);
-          transform: rotate(-5deg);
+  transform: rotate(-5deg);
   background-color: #FDF0E3;
   z-index: 2;
 }

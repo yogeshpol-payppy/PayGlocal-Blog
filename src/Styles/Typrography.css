@@ -3,11 +3,12 @@
   src: url("../app/matter-font/Matter-Regular.ttf");
   font-style: normal;
 }
-.matterfont {
+.matterfont, .strapi-blog h5,
+.strapi-blog h6, .strapi-blog h4, .strapi-blog h3, .strapi-blog h2, .strapi-blog h1 {
   font-family: "matter", sans-serif;
 }
 
-.common-h1-heading, .strapi-blog h1 {
+.common-h1-heading {
   font-size: 5rem;
   line-height: 5rem;
   font-weight: 600;
@@ -15,19 +16,19 @@
 }
 
 @media screen and (max-width: 1024px) {
-  .common-h1-heading, .strapi-blog h1 {
+  .common-h1-heading {
     font-size: 3.5rem;
     line-height: 3.75rem;
   }
 }
 @media screen and (max-width: 699px) {
-  .common-h1-heading, .strapi-blog h1 {
+  .common-h1-heading {
     font-size: 2.5rem;
     line-height: 3rem;
     letter-spacing: -0.075rem;
   }
 }
-.common-h2-heading, .strapi-blog h2 {
+.common-h2-heading {
   font-size: 3.5rem;
   line-height: 4rem;
   font-weight: 600;
@@ -35,18 +36,18 @@
 }
 
 @media screen and (max-width: 1024px) {
-  .common-h2-heading, .strapi-blog h2 {
+  .common-h2-heading {
     font-size: 3rem;
     line-height: 3.5rem;
   }
 }
 @media screen and (max-width: 699px) {
-  .common-h2-heading, .strapi-blog h2 {
+  .common-h2-heading {
     font-size: 2rem;
     line-height: 2.5rem;
   }
 }
-.common-h3-heading, .strapi-blog h3 {
+.common-h3-heading {
   font-size: 3rem;
   line-height: 3.5rem;
   font-weight: 600;
@@ -54,18 +55,18 @@
 }
 
 @media screen and (max-width: 1024px) {
-  .common-h3-heading, .strapi-blog h3 {
+  .common-h3-heading {
     font-size: 2.25rem;
     line-height: 3rem;
   }
 }
 @media screen and (max-width: 699px) {
-  .common-h3-heading, .strapi-blog h3 {
+  .common-h3-heading {
     font-size: 2rem;
     line-height: 2.5rem;
   }
 }
-.common-h4-heading, .strapi-blog h4 {
+.common-h4-heading {
   font-size: 2.25rem;
   line-height: 2.75rem;
   font-weight: 600;
@@ -73,18 +74,18 @@
 }
 
 @media screen and (max-width: 1024px) {
-  .common-h4-heading, .strapi-blog h4 {
+  .common-h4-heading {
     font-size: 1.75rem;
     line-height: 2.5rem;
   }
 }
 @media screen and (max-width: 699px) {
-  .common-h4-heading, .strapi-blog h4 {
+  .common-h4-heading {
     font-size: 1.75rem;
     line-height: 2.25rem;
   }
 }
-.common-h5-heading, .strapi-blog h5 {
+.common-h5-heading {
   font-size: 1.5rem;
   line-height: 2rem;
   font-weight: 600;
@@ -92,18 +93,18 @@
 }
 
 @media screen and (max-width: 1024px) {
-  .common-h5-heading, .strapi-blog h5 {
+  .common-h5-heading {
     font-size: 1.5rem;
     line-height: 2rem;
   }
 }
 @media screen and (max-width: 699px) {
-  .common-h5-heading, .strapi-blog h5 {
+  .common-h5-heading {
     font-size: 1.25rem;
     line-height: 1.75rem;
   }
 }
-.common-h6-heading, .strapi-blog h6 {
+.common-h6-heading {
   font-size: 1.25rem;
   line-height: 1.75rem;
   font-weight: 600;
@@ -111,52 +112,49 @@
 }
 
 @media screen and (max-width: 1024px) {
-  .common-h6-heading, .strapi-blog h6 {
+  .common-h6-heading {
     font-size: 1.25rem;
     line-height: 1.75rem;
   }
 }
 @media screen and (max-width: 699px) {
-  .common-h6-heading, .strapi-blog h6 {
+  .common-h6-heading {
     font-size: 1.25rem;
     line-height: 1.75rem;
   }
 }
-.common-body1-text, .strapi-blog p {
+.common-body1-text {
   font-size: 1rem;
   line-height: 1.5rem;
   font-weight: normal;
 }
 
 @media screen and (max-width: 1024px) {
-  .common-body1-text, .strapi-blog p {
+  .common-body1-text {
     font-size: 1rem;
     line-height: 1.75rem;
   }
 }
 @media screen and (max-width: 699px) {
-  .common-body1-text, .strapi-blog p {
+  .common-body1-text {
     font-size: 0.875rem;
     line-height: 1.5rem;
   }
 }
-.common-body2-text, .strapi-blog ul,
-.strapi-blog ol {
+.common-body2-text {
   font-size: 0.875rem;
   line-height: 1.5rem;
   font-weight: normal;
 }
 
 @media screen and (max-width: 1024px) {
-  .common-body2-text, .strapi-blog ul,
-  .strapi-blog ol {
+  .common-body2-text {
     font-size: 0.875rem;
     line-height: 1.75rem;
   }
 }
 @media screen and (max-width: 699px) {
-  .common-body2-text, .strapi-blog ul,
-  .strapi-blog ol {
+  .common-body2-text {
     font-size: 0.75rem;
     line-height: 1.25rem;
   }
@@ -253,8 +251,7 @@
   color: #484a4b;
 }
 
-.custom-text-grey900, .strapi-blog ul,
-.strapi-blog ol, .strapi-blog p {
+.custom-text-grey900, .strapi-blog p, .strapi-blog ol, .strapi-blog ul {
   color: #282a2b;
 }
 
@@ -370,7 +367,6 @@
 }
 
 .freelancer-text-gradient {
-  background: -webkit-gradient(linear, left top, left bottom, from(#71bafd), color-stop(31.71%, #4071df));
   background: linear-gradient(180deg, #71bafd 0%, #4071df 31.71%);
   -webkit-background-clip: text;
           background-clip: text;
@@ -382,22 +378,18 @@
 }
 
 .background-bg-gradient-1 {
-  background: -webkit-gradient(linear, left top, left bottom, from(#e7fdfb), to(#ceefec));
   background: linear-gradient(180deg, #e7fdfb 0%, #ceefec 100%);
 }
 
 .background-bg-gradient-2 {
-  background: -webkit-gradient(linear, left top, left bottom, from(#ede7fd), to(#e2edff));
   background: linear-gradient(180deg, #ede7fd 0%, #e2edff 100%);
 }
 
 .background-bg-gradient-3 {
-  background: -webkit-gradient(linear, left top, left bottom, from(#ede7fd), to(#ffebff));
   background: linear-gradient(180deg, #ede7fd 0%, #ffebff 100%);
 }
 
 .background-bg-gradient-4 {
-  background: -webkit-gradient(linear, left top, left bottom, from(#e2ebff), to(#dcf2fa));
   background: linear-gradient(180deg, #e2ebff 0%, #dcf2fa 100%);
 }
 
@@ -411,7 +403,6 @@
 
 .hover-custom-border-grey400:hover {
   border-color: #a1a5a6 !important;
-  -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 
@@ -428,13 +419,11 @@
 }
 
 .get-light-image {
-  -webkit-filter: brightness(100);
-          filter: brightness(100);
+  filter: brightness(100);
 }
 
 .get-light-image-onhover:hover {
-  -webkit-filter: brightness(100);
-          filter: brightness(100);
+  filter: brightness(100);
 }
 
 .border-circular {
@@ -442,8 +431,7 @@
 }
 
 .sign-up-blue-btn-drop-shadow {
-  -webkit-box-shadow: 0px 2px 10px 0px rgba(64, 113, 223, 0.2), inset 0px 0px 7px 1px rgba(255, 255, 255, 0.2509803922);
-          box-shadow: 0px 2px 10px 0px rgba(64, 113, 223, 0.2), inset 0px 0px 7px 1px rgba(255, 255, 255, 0.2509803922); /* Inset shadow */
+  box-shadow: 0px 2px 10px 0px rgba(64, 113, 223, 0.2), inset 0px 0px 7px 1px rgba(255, 255, 255, 0.2509803922); /* Inset shadow */
 }
 
 .list-style-alphabate {
@@ -459,8 +447,7 @@
 }
 
 .scroll-snap-horizontal-parent {
-  -ms-scroll-snap-type: x mandatory;
-      scroll-snap-type: x mandatory;
+  scroll-snap-type: x mandatory;
 }
 
 .scroll-snap-horizontal-child {
@@ -497,16 +484,104 @@
   z-index: 1 !important;
 }
 
+.strapi-blog p, .strapi-blog ol, .strapi-blog ul {
+  font-size: 18px;
+  line-height: 28px;
+}
+@media (min-width: 768px) {
+  .strapi-blog p, .strapi-blog ol, .strapi-blog ul {
+    font-size: 18px;
+    line-height: 28px;
+  }
+}
+@media (min-width: 1024px) {
+  .strapi-blog p, .strapi-blog ol, .strapi-blog ul {
+    font-size: 20px;
+    line-height: 32px;
+  }
+}
 .strapi-blog ul,
 .strapi-blog ol {
   padding-left: 1.8rem;
-  margin-bottom: 1.25rem;
+  margin: 1rem 0 1.25rem 0.5rem;
   list-style-type: disc;
-  margin-left: 0.5rem;
-  margin: 1rem 0;
 }
 .strapi-blog li {
   margin-bottom: 0.5rem;
+}
+.strapi-blog h1 {
+  font-size: 28px;
+  line-height: 32px;
+  font-weight: bold;
+}
+@media (min-width: 768px) {
+  .strapi-blog h1 {
+    font-size: 36px;
+    line-height: 44px;
+  }
+}
+@media (min-width: 1024px) {
+  .strapi-blog h1 {
+    font-size: 48px;
+    line-height: 56px;
+  }
+}
+.strapi-blog h2 {
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: bold;
+}
+@media (min-width: 768px) {
+  .strapi-blog h2 {
+    font-size: 28px;
+    line-height: 40px;
+  }
+}
+@media (min-width: 1024px) {
+  .strapi-blog h2 {
+    font-size: 36px;
+    line-height: 44px;
+  }
+}
+.strapi-blog h3 {
+  font-size: 22px;
+  line-height: 28px;
+  font-weight: bold;
+}
+@media (min-width: 768px) {
+  .strapi-blog h3 {
+    font-size: 24px;
+    line-height: 32px;
+  }
+}
+@media (min-width: 1024px) {
+  .strapi-blog h3 {
+    font-size: 28px;
+    line-height: 36px;
+  }
+}
+.strapi-blog h4 {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: bold;
+}
+@media (min-width: 768px) {
+  .strapi-blog h4 {
+    font-size: 22px;
+    line-height: 32px;
+  }
+}
+@media (min-width: 1024px) {
+  .strapi-blog h4 {
+    font-size: 24px;
+    line-height: 32px;
+  }
+}
+.strapi-blog h5,
+.strapi-blog h6 {
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: bold;
 }
 .strapi-blog a {
   color: #4071df;
@@ -518,9 +593,13 @@
 .strapi-blog img {
   padding: 20px 0px;
   width: 100%;
-  -o-object-position: center;
-     object-position: center;
+  height: auto;
   -o-object-fit: cover;
      object-fit: cover;
-  height: auto;
+  -o-object-position: center;
+     object-position: center;
+}
+
+html {
+  scroll-behavior: smooth;
 }/*# sourceMappingURL=Typrography.css.map */
