@@ -312,16 +312,16 @@ const StrapiBlogSection = ({ id }) => {
                             <div className="border border-[#D9D9D9] my-10"></div>
 
                             <div className="flex flex-col gap-8">
-                                <h6 className='common-h6-heading font-matter custom-text-grey900'>Read this next</h6>
+                                <h5 className='common-h5-heading font-matter custom-text-grey900'>Read this next</h5>
 
-                                <div className="flex flex-row flex-wrap gap-10 items-center justify-center lg:justify-start">
+                                <div className="flex flex-col lg:flex-row gap-10 items-center justify-center lg:justify-start">
                                     {readMoreData?.map((blog)=>{
                                         return <StrapiBlog key={blog?.documentId}
                                         catagory={blog?.category}
                                         link={'/strapi-blog/'+blog?.documentId}
                                         imgSrc={getImgUrl(blog?.cover_img)}
                                         date={getFormattedDate(blog?.publish_date ?? blog?.publishedAt)}
-                                        name={'abcd'}
+                                        name={data?.author}
                                         heading={blog?.title}
                                         />
                                         // <Blogs key={blog?.documentId}

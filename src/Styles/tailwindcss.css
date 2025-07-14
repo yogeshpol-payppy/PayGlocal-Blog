@@ -3345,6 +3345,10 @@ video {
     width: auto;
   }
 
+  .lg\:w-\[48\%\] {
+    width: 48%;
+  }
+
   .lg\:max-w-20 {
     max-width: 5rem;
   }
