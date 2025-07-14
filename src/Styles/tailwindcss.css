@@ -1219,10 +1219,6 @@ video {
   max-width: 72rem;
 }
 
-.max-w-72 {
-  max-width: 18rem;
-}
-
 .max-w-80 {
   max-width: 20rem;
 }
@@ -1797,10 +1793,6 @@ video {
 .border-gray-500 {
   --tw-border-opacity: 1;
   border-color: rgb(107 114 128 / var(--tw-border-opacity));
-}
-
-.border-transparent {
-  border-color: transparent;
 }
 
 .bg-\[\#00000072\] {
@@ -3341,12 +3333,12 @@ video {
     width: 40vw;
   }
 
-  .lg\:w-auto {
-    width: auto;
+  .lg\:w-\[47\%\] {
+    width: 47%;
   }
 
-  .lg\:w-\[48\%\] {
-    width: 48%;
+  .lg\:w-auto {
+    width: auto;
   }
 
   .lg\:max-w-20 {

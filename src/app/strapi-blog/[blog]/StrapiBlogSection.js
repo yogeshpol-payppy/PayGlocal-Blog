@@ -17,6 +17,7 @@ import { BlocksRenderer } from '@strapi/blocks-react-renderer';
 import { RWebShare } from 'react-web-share';
 import Blogs from '@/Components/Blogs';
 import StrapiBlog from '@/Components/StrapiBlog';
+import Head from 'next/head';
 
 const manrope = Manrope({
     display: 'swap',
@@ -33,7 +34,9 @@ const StrapiBlogSection = ({ id }) => {
     //to fetch blog data from api
     const fetchBlog = useCallback(async () => {
         try {
-            const apiResponse = await fetch(`https://strapi.payglocal.in/api/blogs/${id}?populate=*`);
+            // const apiResponse = await fetch(`https://strapi.payglocal.in/api/blogs/${id}?populate=*`);
+            const apiResponse = await fetch(`https://strapi.payglocal.in/api/blogs/${id}?populate[cover_img]=true&populate[author_img]=true&populate[SEO][populate]=metaImage&populate[blogs]=true`);
+            
             const json = await apiResponse.json();
 
             setData({ ...json.data });
@@ -41,23 +44,23 @@ const StrapiBlogSection = ({ id }) => {
         } catch (error) {
             console.error(error);
         }
-    },[id]);
+    }, [id]);
 
     //to fetch read more blogs data 
     const fetchReadMoreBlogs = useCallback(async () => {
-            try {
-                const apiResponse = await fetch(`https://strapi.payglocal.in/api/blogs?filters[publishedAt][$notNull]=true&sort=publishedAt:desc&pagination[page]=1&pagination[pageSize]=3&populate=*`);
-                const json = await apiResponse.json();
+        try {
+            const apiResponse = await fetch(`https://strapi.payglocal.in/api/blogs?filters[publishedAt][$notNull]=true&sort=publishedAt:desc&pagination[page]=1&pagination[pageSize]=3&populate=*`);
+            const json = await apiResponse.json();
 
-                //this will filter out the current blog from the read more blogs
-                const filteredBlogs = json?.data?.filter(blog=> blog?.documentId !== id);
+            //this will filter out the current blog from the read more blogs
+            const filteredBlogs = json?.data?.filter(blog => blog?.documentId !== id);
 
-                setReadMoreData([...filteredBlogs]);
-    
-            } catch (error) {
-                console.error(error);
-            }
-    },[]);
+            setReadMoreData([...filteredBlogs]);
+
+        } catch (error) {
+            console.error(error);
+        }
+    }, []);
 
     useEffect(() => {
         if (!id) { return; }
@@ -65,9 +68,9 @@ const StrapiBlogSection = ({ id }) => {
         fetchBlog();
     }, [id]);
 
-    useEffect(()=>{
+    useEffect(() => {
         fetchReadMoreBlogs();
-    },[]);
+    }, []);
 
     //to fill the progress bar as per the scroll
     useEffect(() => {
@@ -162,6 +165,32 @@ const StrapiBlogSection = ({ id }) => {
 
     return (
         <>
+            {/* meta data  */}
+            <Head>
+                <title>{data?.SEO?.metaTitle || data?.title}</title>
+                <meta name="description" content={data?.SEO?.metaDescription || ''} />
+                <meta name="keywords" content={data?.SEO?.keywords || ''} />
+                {data?.SEO?.canonicalURL && <link rel="canonical" href={data?.SEO?.canonicalURL} />}
+
+                {/* Open Graph / Facebook */}
+                <meta property="og:title" content={data?.SEO?.metaTitle || ''} />
+                <meta property="og:description" content={data?.SEO?.metaDescription || ''} />
+                {data?.SEO?.metaImage && <meta property="og:image" content={getImgUrl(data?.SEO?.metaImage)} />}
+                {data?.SEO?.metaImage && <meta name="twitter:image" content={getImgUrl(data?.SEO?.metaImage)} />}
+
+                {/* Twitter Card */}
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content={data?.SEO?.metaTitle || ''} />
+                <meta name="twitter:description" content={data?.SEO?.metaDescription || ''} />
+
+                {/* Optional Meta */}
+                {data?.SEO?.metaViewport && <meta name="viewport" content={data?.SEO?.metaViewport} />}
+                {data?.SEO?.metaRobots && <meta name="robots" content={data?.SEO?.metaRobots} />}
+            </Head>
+
+
+         {/* page section  */}
+
             {/* blue top border  */}
             <div className=" w-full fixed top-[76px]">
                 <div className="border-t custom-border-grey200 ">
@@ -226,7 +255,7 @@ const StrapiBlogSection = ({ id }) => {
 
                                         {/* share button */}
                                         <RWebShare
-                                            data={{ title: "Hey, I found this blog from PayGlocal! I love reading their insightful blogs. Check this out: ", url: url, }} >
+                                            data={{ title: "Hey, I found this blog from PayGlocal! I love reading their insightful blogs. Check this out: ", url: url + '/' + id, }} >
                                             <Image src={BlogShare} width={40} height={40} alt='BlogShare' quality={100} />
                                         </RWebShare>
                                     </div>
@@ -312,26 +341,18 @@ const StrapiBlogSection = ({ id }) => {
                             <div className="border border-[#D9D9D9] my-10"></div>
 
                             <div className="flex flex-col gap-8">
-                                <h5 className='common-h5-heading font-matter custom-text-grey900'>Read this next</h5>
+                                <h6 className='common-h6-heading font-matter custom-text-grey900'>Read this next</h6>
 
-                                <div className="flex flex-col lg:flex-row gap-10 items-center justify-center lg:justify-start">
-                                    {readMoreData?.map((blog)=>{
+                                <div className="flex flex-row flex-wrap gap-8 items-center justify-center lg:justify-start ">
+                                    {readMoreData?.map((blog) => {
                                         return <StrapiBlog key={blog?.documentId}
-                                        catagory={blog?.category}
-                                        link={'/strapi-blog/'+blog?.documentId}
-                                        imgSrc={getImgUrl(blog?.cover_img)}
-                                        date={getFormattedDate(blog?.publish_date ?? blog?.publishedAt)}
-                                        name={data?.author}
-                                        heading={blog?.title}
+                                            catagory={blog?.category}
+                                            link={'/strapi-blog/' + blog?.documentId}
+                                            imgSrc={getImgUrl(blog?.cover_img)}
+                                            date={getFormattedDate(blog?.publish_date ?? blog?.publishedAt)}
+                                            name={data?.author}
+                                            heading={blog?.title}
                                         />
-                                        // <Blogs key={blog?.documentId}
-                                        // name={'abcd'}
-                                        // date={'published at '+ getFormattedDate(blog?.publish_date ?? blog?.publishedAt)}
-                                        // heading={blog?.title}
-                                        // img={getImgUrl(blog?.cover_img)}
-                                        // src={'/strapi-blog/'+blog?.documentId}
-                                        // tag={blog?.category}
-                                        // />
                                     })}
                                 </div>
                             </div>
