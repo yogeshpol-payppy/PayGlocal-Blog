@@ -7,3 +7,10 @@
     --radius: 0.5rem
   }
 }
+
+@font-face {
+  font-family: 'Matter';
+  src: url('/fonts/Matter-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}

@@ -798,6 +798,11 @@ video {
   margin-right: auto;
 }
 
+.my-10 {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
 .my-14 {
   margin-top: 3.5rem;
   margin-bottom: 3.5rem;
@@ -820,6 +825,10 @@ video {
 
 .-mt-48 {
   margin-top: -12rem;
+}
+
+.mb-10 {
+  margin-bottom: 2.5rem;
 }
 
 .mb-2 {
@@ -948,10 +957,6 @@ video {
 
 .mt-\[7\.5rem\] {
   margin-top: 7.5rem;
-}
-
-.mb-10 {
-  margin-bottom: 2.5rem;
 }
 
 .box-border {
@@ -1212,6 +1217,10 @@ video {
 
 .max-w-6xl {
   max-width: 72rem;
+}
+
+.max-w-72 {
+  max-width: 18rem;
 }
 
 .max-w-80 {
@@ -1790,6 +1799,10 @@ video {
   border-color: rgb(107 114 128 / var(--tw-border-opacity));
 }
 
+.border-transparent {
+  border-color: transparent;
+}
+
 .bg-\[\#00000072\] {
   background-color: #00000072;
 }
@@ -2156,6 +2169,10 @@ video {
   padding-right: 1rem;
 }
 
+.pt-1 {
+  padding-top: 0.25rem;
+}
+
 .pt-10 {
   padding-top: 2.5rem;
 }
@@ -2230,6 +2247,10 @@ video {
 
 .text-start {
   text-align: start;
+}
+
+.font-matter {
+  font-family: Matter;
 }
 
 .text-2xl {
@@ -2481,6 +2502,12 @@ video {
   transition-duration: 150ms;
 }
 
+.transition-opacity {
+  transition-property: opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
 .duration-200 {
   transition-duration: 200ms;
 }
@@ -2529,6 +2556,16 @@ video {
 
 .running {
   animation-play-state: running;
+}
+
+@font-face {
+  font-family: 'Matter';
+
+  src: url('/fonts/Matter-Regular.ttf') format('truetype');
+
+  font-weight: 400;
+
+  font-style: normal;
 }
 
 .hover\:scale-105:hover {

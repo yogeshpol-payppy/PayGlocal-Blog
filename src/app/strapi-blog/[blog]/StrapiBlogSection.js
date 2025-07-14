@@ -9,26 +9,31 @@ import rehypeRaw from 'rehype-raw';
 //images
 import BreadCrumb from '@/Images/strapi-blog/breadcrumb-item.png';
 import BlogShare from '@/Images/strapi-blog/blog-share.png';
-import PayglocalBlogLogo from '@/Images/strapi-blog/blog- thumbnail.png';
+import BlueActiveArrow from '@/Images/strapi-blog/blue-active-arrow.png';
 
 
 import Image from 'next/image';
 import { BlocksRenderer } from '@strapi/blocks-react-renderer';
+import { RWebShare } from 'react-web-share';
+import Blogs from '@/Components/Blogs';
+import StrapiBlog from '@/Components/StrapiBlog';
 
 const manrope = Manrope({
     display: 'swap',
     subsets: ['latin']
 })
 
-const StrapiBlogSection = () => {
+const StrapiBlogSection = ({ id }) => {
 
     const [data, setData] = useState({});
+    const [readMoreData, setReadMoreData] = useState([]);
     const [activeHeading, setActiveHeading] = useState('');
+    const url = window?.location?.origin + window?.location?.pathname;
 
-    //to fetch data from api
-    const fetchBlog = async () => {
+    //to fetch blog data from api
+    const fetchBlog = useCallback(async () => {
         try {
-            const apiResponse = await fetch('https://strapi.payglocal.in/api/blogs/g6j7ik5lh56ah0t615fg73ja?populate=*');
+            const apiResponse = await fetch(`https://strapi.payglocal.in/api/blogs/${id}?populate=*`);
             const json = await apiResponse.json();
 
             setData({ ...json.data });
@@ -36,33 +41,33 @@ const StrapiBlogSection = () => {
         } catch (error) {
             console.error(error);
         }
-    }
+    },[id]);
+
+    //to fetch read more blogs data 
+    const fetchReadMoreBlogs = useCallback(async () => {
+            try {
+                const apiResponse = await fetch(`https://strapi.payglocal.in/api/blogs?filters[publishedAt][$notNull]=true&sort=publishedAt:desc&pagination[page]=1&pagination[pageSize]=3&populate=*`);
+                const json = await apiResponse.json();
+
+                //this will filter out the current blog from the read more blogs
+                const filteredBlogs = json?.data?.filter(blog=> blog?.documentId !== id);
+
+                setReadMoreData([...filteredBlogs]);
+    
+            } catch (error) {
+                console.error(error);
+            }
+    },[]);
 
     useEffect(() => {
+        if (!id) { return; }
+
         fetchBlog();
-    }, []);
+    }, [id]);
 
-    //function to get the date in readable format
-    const getFormattedDate = useCallback(() => {
-        const date = new Date(data?.publishedAt);
-
-        const readableDate = date.toLocaleDateString('en-GB', {
-            day: 'numeric',
-            month: 'long',
-            year: 'numeric'
-        })
-
-        return readableDate;
-    }, [data]);
-
-    //get strapi images
-    const strapibaseUrl = 'https://strapi.payglocal.in';
-    function getImgUrl(data) {
-        console.log('img data :', data);
-
-        const imgName = data?.formats?.large?.url || data?.formats?.medium?.url || data?.formats?.small?.url || data?.formats?.thumbnail.url;
-        return (imgName ? (strapibaseUrl + imgName) : '');
-    }
+    useEffect(()=>{
+        fetchReadMoreBlogs();
+    },[]);
 
     //to fill the progress bar as per the scroll
     useEffect(() => {
@@ -97,6 +102,64 @@ const StrapiBlogSection = () => {
         });
     };
 
+
+    //function to get the date in readable format
+    const getFormattedDate = useCallback((dateValue) => {
+        const date = new Date(dateValue);
+
+        const readableDate = date.toLocaleDateString('en-GB', {
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric'
+        })
+
+        return readableDate;
+    }, []);
+
+    //get strapi images high quality url first
+    const strapibaseUrl = 'https://strapi.payglocal.in';
+    function getImgUrl(data) {
+        console.log('img data :', data);
+
+        const imgName = data?.formats?.large?.url || data?.formats?.medium?.url || data?.formats?.small?.url || data?.formats?.thumbnail.url;
+        return (imgName ? (strapibaseUrl + imgName) : '');
+    }
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const headings = Array.from(document.querySelectorAll('[id]')).filter(el =>
+                /^h[1-6]$/.test(el.tagName.toLowerCase())
+            );
+
+            let current = '';
+            const scrollPosition = window.scrollY + 250; // offset to trigger earlier
+
+            headings.forEach((heading) => {
+                if (heading.offsetTop <= scrollPosition) {
+                    current = heading.id;
+                }
+            });
+
+            setActiveHeading(current);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+
+
+    useEffect(() => {
+        console.log(('current heading is ', activeHeading));
+
+    }, [activeHeading]);
+    useEffect(() => {
+        setTimeout(() => {
+            const headings = document.querySelectorAll('[id]');
+            console.log("All IDs found:", Array.from(headings).map(h => h.id));
+        }, 500);
+    }, [data?.content]);
+
     return (
         <>
             {/* blue top border  */}
@@ -119,19 +182,27 @@ const StrapiBlogSection = () => {
                     </div>
 
                     <div className="flex flex-row gap-12 mt-5  ">
+
+                        {/* sticky sidebar content  */}
                         <div className='max-w-[300px] w-full hidden lg:block '>
                             <div className="background-custom-blue2 flex flex-col gap-5 p-5  rounded-xl sticky top-24">
                                 <h6 className="common-h6-heading matterfont font-bold">In this blog</h6>
                                 {getHeadingsFromMarkdown(data?.content || '')?.map(({ text, slug }, index) => (
-                                    <div key={index} className="common-body1-text">
-                                        <a href={`#${slug}`} className={`common-body1-text active:text-blue-600 hover:text-blue-600 ${activeHeading === slug ? 'text-blue-600' : ''}`}>
-                                            {text}
-                                        </a>
+                                    <div key={index} className=" flex flex-row gap-1.5">
+                                        <div className='flex-shrink-0'>
+                                            <Image src={BlueActiveArrow} quality={100} width={16} height={16} alt='BlueActiveArrow' className={`pt-1 transition-opacity duration-300 ${activeHeading === slug ? 'opacity-100' : 'opacity-0'}`} />
+                                        </div>
+                                        <div>
+                                            <a href={`#${slug}`} className={`common-body1-text active:text-blue-600 hover:text-blue-600 ${activeHeading === slug ? 'text-blue-600' : ''}`}>
+                                                {text}
+                                            </a>
+                                        </div>
                                     </div>
                                 ))}
                             </div>
                         </div>
 
+                        {/* blog content  */}
                         <div className='w-full'>
 
                             <div className="flex flex-col gap-4 lg:gap-10">
@@ -141,7 +212,7 @@ const StrapiBlogSection = () => {
                                     <div className="flex justify-between items-center w-full gap-2">
                                         <div className="flex items-center gap-4 flex-wrap">
                                             <div className=".common-body1-text custom-text-grey500 flex items-center flex-wrap gap-x-2">
-                                                <div>{getFormattedDate()}  &nbsp;| </div>
+                                                <div>{getFormattedDate(data?.publish_date ?? data?.publishedAt)}  &nbsp;| </div>
                                                 <div>{data?.read_min} min read</div>
                                             </div>
                                             <div className="rounded-full py-1 px-4 bg-[#F6F8FE]">
@@ -149,9 +220,15 @@ const StrapiBlogSection = () => {
                                             </div>
                                         </div>
 
-                                        <button>
-                                            <Image src={BlogShare} width={40} height={40} alt='BlogShare' />
-                                        </button>
+                                        {/* <button>
+                                            <Image src={BlogShare} width={40} height={40} alt='BlogShare' quality={100} />
+                                        </button> */}
+
+                                        {/* share button */}
+                                        <RWebShare
+                                            data={{ title: "Hey, I found this blog from PayGlocal! I love reading their insightful blogs. Check this out: ", url: url, }} >
+                                            <Image src={BlogShare} width={40} height={40} alt='BlogShare' quality={100} />
+                                        </RWebShare>
                                     </div>
 
                                 </div>
@@ -172,7 +249,6 @@ const StrapiBlogSection = () => {
                                 <div className={"strapi-blog " + manrope.className}>
 
                                     <ReactMarkdown
-                                        children={data?.content}
                                         remarkPlugins={[remarkGfm]}
                                         rehypePlugins={[rehypeRaw]}
                                         // className="prose max-w-none"
@@ -180,32 +256,32 @@ const StrapiBlogSection = () => {
                                             h1: ({ node, children }) => {
                                                 const text = children?.toString() || '';
                                                 const slug = text.toLowerCase().replace(/\s+/g, '-').replace(/[^\w\s-]/g, '');
-                                                return <h1 id={slug} className="font-bold mt-14 lg:mt-20 mb-5 text-3xl scroll-mt-28 matterfont">{children}</h1>;
+                                                return <h1 id={slug} className="font-bold mt-14 lg:mt-20 mb-5 text-3xl scroll-mt-28 font-matter">{children}</h1>;
                                             },
                                             h2: ({ node, children }) => {
                                                 const text = children?.toString() || '';
                                                 const slug = text.toLowerCase().replace(/\s+/g, '-').replace(/[^\w\s-]/g, '');
-                                                return <h2 id={slug} className="font-bold mt-14 lg:mt-20 mb-5 text-2xl scroll-mt-28 matterfont">{children}</h2>;
+                                                return <h2 id={slug} className="font-bold mt-14 lg:mt-20 mb-5 text-2xl scroll-mt-28 font-matter">{children}</h2>;
                                             },
                                             h3: ({ node, children }) => {
                                                 const text = children?.toString() || '';
                                                 const slug = text.toLowerCase().replace(/\s+/g, '-').replace(/[^\w\s-]/g, '');
-                                                return <h3 id={slug} className="font-bold mt-14 lg:mt-20 mb-5 text-xl scroll-mt-28 matterfont">{children}</h3>;
+                                                return <h3 id={slug} className="font-bold mt-14 lg:mt-20 mb-5 text-xl scroll-mt-28 font-matter">{children}</h3>;
                                             },
                                             h4: ({ node, children }) => {
                                                 const text = children?.toString() || '';
                                                 const slug = text.toLowerCase().replace(/\s+/g, '-').replace(/[^\w\s-]/g, '');
-                                                return <h4 id={slug} className="font-bold mt-14 lg:mt-20 mb-5 text-xl scroll-mt-28 matterfont">{children}</h4>;
+                                                return <h4 id={slug} className="font-bold mt-14 lg:mt-20 mb-5 text-xl scroll-mt-28 font-matter">{children}</h4>;
                                             },
                                             h5: ({ node, children }) => {
                                                 const text = children?.toString() || '';
                                                 const slug = text.toLowerCase().replace(/\s+/g, '-').replace(/[^\w\s-]/g, '');
-                                                return <h5 id={slug} className="font-bold mt-14 lg:mt-20 mb-5 text-xl scroll-mt-28 matterfont">{children}</h5>;
+                                                return <h5 id={slug} className="font-bold mt-14 lg:mt-20 mb-5 text-xl scroll-mt-28 font-matter">{children}</h5>;
                                             },
                                             h6: ({ node, children }) => {
                                                 const text = children?.toString() || '';
                                                 const slug = text.toLowerCase().replace(/\s+/g, '-').replace(/[^\w\s-]/g, '');
-                                                return <h6 id={slug} className="font-bold mt-14 lg:mt-20 mb-5 text-xl scroll-mt-28 matterfont">{children}</h6>;
+                                                return <h6 id={slug} className="font-bold mt-14 lg:mt-20 mb-5 text-xl scroll-mt-28 font-matter">{children}</h6>;
                                             },
                                             table: ({ node, ...props }) => (
                                                 <div className="overflow-x-auto mb-10">
@@ -213,7 +289,9 @@ const StrapiBlogSection = () => {
                                                 </div>
                                             ),
                                         }}
-                                    />
+                                    >
+                                        {data?.content}
+                                    </ReactMarkdown>
                                     {/* <BlocksRenderer content={data?.content || []}
                                         blocks={{
                                             heading: ({ level, children }) => {
@@ -231,7 +309,36 @@ const StrapiBlogSection = () => {
                                 </div>
                             </div>
 
+                            <div className="border border-[#D9D9D9] my-10"></div>
+
+                            <div className="flex flex-col gap-8">
+                                <h6 className='common-h6-heading font-matter custom-text-grey900'>Read this next</h6>
+
+                                <div className="flex flex-row flex-wrap gap-10 items-center justify-center lg:justify-start">
+                                    {readMoreData?.map((blog)=>{
+                                        return <StrapiBlog key={blog?.documentId}
+                                        catagory={blog?.category}
+                                        link={'/strapi-blog/'+blog?.documentId}
+                                        imgSrc={getImgUrl(blog?.cover_img)}
+                                        date={getFormattedDate(blog?.publish_date ?? blog?.publishedAt)}
+                                        name={'abcd'}
+                                        heading={blog?.title}
+                                        />
+                                        // <Blogs key={blog?.documentId}
+                                        // name={'abcd'}
+                                        // date={'published at '+ getFormattedDate(blog?.publish_date ?? blog?.publishedAt)}
+                                        // heading={blog?.title}
+                                        // img={getImgUrl(blog?.cover_img)}
+                                        // src={'/strapi-blog/'+blog?.documentId}
+                                        // tag={blog?.category}
+                                        // />
+                                    })}
+                                </div>
+                            </div>
                         </div>
+
+
+
                     </div>
                 </div>
             </section>
@@ -241,5 +348,5 @@ const StrapiBlogSection = () => {
 export default StrapiBlogSection;
 
 StrapiBlogSection.propTypes = {
-    data: PropTypes.object
+    id: PropTypes.object
 };
