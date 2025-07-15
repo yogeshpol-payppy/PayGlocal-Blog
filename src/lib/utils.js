@@ -61,3 +61,21 @@ export const extractUtmParams = (queryString) => {
     utm_id: params?.get("utm_id"),
   };
 };
+
+//get strapi images high quality url first
+ const strapibaseUrl = 'https://strapi.payglocal.in';
+ export const getImgUrl = (data)=>{
+     console.log('img data :', data);
+     const imgName = data?.formats?.large?.url || data?.formats?.medium?.url || data?.formats?.small?.url || data?.formats?.thumbnail.url;
+     return (imgName ? (strapibaseUrl + imgName) : '');
+}
+//function to get the date in readable format
+export const getFormattedDate = (dateValue) => {
+    const date = new Date(dateValue);
+    const readableDate = date.toLocaleDateString('en-GB', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric'
+    })
+    return readableDate;
+};

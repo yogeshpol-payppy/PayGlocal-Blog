@@ -151,18 +151,6 @@ const StrapiBlogSection = ({ id }) => {
     }, []);
 
 
-
-    useEffect(() => {
-        console.log(('current heading is ', activeHeading));
-
-    }, [activeHeading]);
-    useEffect(() => {
-        setTimeout(() => {
-            const headings = document.querySelectorAll('[id]');
-            console.log("All IDs found:", Array.from(headings).map(h => h.id));
-        }, 500);
-    }, [data?.content]);
-
     return (
         <>
             {/* meta data  */}
@@ -343,8 +331,8 @@ const StrapiBlogSection = ({ id }) => {
                             <div className="flex flex-col gap-8">
                                 <h6 className='common-h6-heading font-matter custom-text-grey900'>Read this next</h6>
 
-                                <div className="flex flex-row flex-wrap gap-8 items-center justify-center lg:justify-start ">
-                                    {readMoreData?.map((blog) => {
+                                <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 justify-start">
+                                    {readMoreData?.slice(0,2)?.map((blog) => {
                                         return <StrapiBlog key={blog?.documentId}
                                             catagory={blog?.category}
                                             link={'/strapi-blog/' + blog?.documentId}
