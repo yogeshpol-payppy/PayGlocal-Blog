@@ -12,7 +12,7 @@ const manrope=Manrope({
 const StrapiBlog = ({imgSrc,link,date,name,heading,catagory}) => {
     
   return (
-    <Link href={link} className='w-full lg:w-[47%]  h-auto '>
+    <Link href={link} className='w-full h-auto'>
         <div className={"flex flex-col gap-7 w-full "+ manrope.className}>
             <div className="rounded-xl overflow-hidden w-full">
                 <Image src={imgSrc} width={288} height={182} className='w-full'/>
